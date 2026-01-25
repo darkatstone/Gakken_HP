@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学受験ムビスタ | ムビスタ SERIES SITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/css/common.css">
+    <link rel="stylesheet" href="Assets/css/u-exam.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+    <div class="fixed-background">
+        <img src="Assets/img/bg-pc.webp" alt="">
+    </div>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="index.html"><img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+            </div>
+            <nav class="header-right" id="headerNav">
+                <a href="english.html" class="nav-link">英検</a>
+                <a href="u-exam.html" class="nav-link">大学受験</a>
+                <a href="toeic.html" class="nav-link">TOEIC</a>
+                <a href="#" class="nav-link">高校入試</a>
+                <a href="video-viewer.html" class="header-button">書籍購入者向け動画視聴ページ</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <!-- Dots Container -->
+        <div class="hero-dots-container" id="heroDotsContainer"></div>
+        
+        <!-- Background Shapes -->
+        <div class="shapes-container">
+            <!-- Animated Lines -->
+            <div class="animated-line line-top-to-bottom line-1"></div>
+            <div class="animated-line line-left-to-right line-2"></div>
+            <div class="animated-line line-bottom-to-top line-3"></div>
+            <div class="animated-line line-right-to-left line-4"></div>
+            <div class="animated-line line-top-to-bottom line-5"></div>
+            <div class="animated-line line-left-to-right line-6"></div>
+            <div class="animated-line line-bottom-to-top line-7"></div>
+            <div class="animated-line line-right-to-left line-8"></div>
+            <div class="animated-line line-top-to-bottom line-9"></div>
+            <div class="animated-line line-left-to-right line-10"></div>
+            <div class="animated-line line-bottom-to-top line-11"></div>
+            <div class="animated-line line-right-to-left line-12"></div>
+        </div>
+
+        <!-- Hero Text - Centered -->
+        <div class="hero-text-container">
+            <div class="hero-text-left">
+                <h1 class="hero-title-left hero-title-main">大学受験<br>ムビスタ</h1>
+                <p class="hero-subtitle">「参考書」と「講義」の良いとこ取り</p>
+            </div>
+            <div class="hero-image-right">
+                <img src="Assets/img/bg1 (2).png" alt="Hero Image" class="hero-right-image-img">
+            </div>
+        </div>
+    </main>
+
+    <!-- Fixed Bottom Buttons -->
+    <div class="fixed-bottom-buttons">
+        <a href="video-viewer.html" class="fixed-cta-button">
+            <span class="cta-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </span>
+            <span class="cta-text">書籍購入者向け動画視聴ページ</span>
+        </a>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-content">
+            <button class="sidebar-close" id="sidebarClose" aria-label="閉じる">×</button>
+            <div class="sidebar-logo">
+                <a href="index.html"><img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="english.html" class="sidebar-link">英検</a>
+                <a href="u-exam.html" class="sidebar-link">大学受験</a>
+                <a href="toeic.html" class="sidebar-link">TOEIC</a>
+                <a href="#" class="sidebar-link">高校入試</a>
+                <a href="video-viewer.html" class="sidebar-button">書籍購入者向け動画視聴ページ</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Teachers Introduction Section -->
+    <section class="teachers-intro-section">
+        <div class="teachers-intro-container">
+            <div class="teachers-intro-content">
+                <div class="teachers-intro-top">
+                    <div class="teachers-title-bg">TEACHERS</div>
+                </div>
+                <p class="teachers-intro-text">
+                    優秀な講師陣による講義動画を視聴することで、より効率的に学習を進めることができます。<br>
+                    大学受験の勉強も、これらの講師の名物講義動画を観ることで、より効果的に理解を深めることができます。<br>
+                    ここでは、そんな講師たちとその講義動画をご紹介します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers-section">
+        <div class="teachers-dots-container" id="teachersDotsContainer"></div>
+        <div class="animated-lines">
+            <div class="line line-horizontal line-1"></div>
+            <div class="line line-horizontal line-2"></div>
+            <div class="line line-horizontal line-3"></div>
+            <div class="line line-vertical line-4"></div>
+            <div class="line line-vertical line-5"></div>
+            <div class="line line-vertical line-6"></div>
+        </div>
+        <div class="teachers-container">
+            <div class="swiper teachers-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="八澤龍之介" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">八澤龍之介</h3>
+                            <p class="teacher-name-en">YASAWA RYUNOSUKE</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="岡本梨奈" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">岡本梨奈</h3>
+                            <p class="teacher-name-en">OKAMOTO RINA</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="山城大樹" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">山城大樹</h3>
+                            <p class="teacher-name-en">YAMASHIRO DAIKI</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="宗慶二" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">宗慶二</h3>
+                            <p class="teacher-name-en">SOU KEIJI</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="小池陽慈" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">小池陽慈</h3>
+                            <p class="teacher-name-en">KOIKE YOJI</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="上野柊" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">上野柊</h3>
+                            <p class="teacher-name-en">UENO TOORU</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="伊藤敏" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">伊藤敏</h3>
+                            <p class="teacher-name-en">ITO SATOSHI</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="大渕将克" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">大渕将克</h3>
+                            <p class="teacher-name-en">OBUCHI MASAKATSU</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="藤原進之介" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">藤原進之介</h3>
+                            <p class="teacher-name-en">FUJIWARA SHINNOSUKE</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-teacher-description="株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。">
+                        <div class="teacher-card">
+                            <div class="teacher-image-wrapper">
+                                <img src="Assets/img/teacher1.png" alt="鈴木健士" class="teacher-image">
+                            </div>
+                            <h3 class="teacher-name-jp">鈴木健士</h3>
+                            <p class="teacher-name-en">SUZUKI KENJI</p>
+                            <div class="teacher-tags">
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                                <span class="teacher-tag">古典文法</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <!-- Teacher Description -->
+            <div class="teacher-description-container">
+                <div class="teacher-description-content">
+                    <h3 class="teacher-description-name-jp"></h3>
+                    <p class="teacher-description-name-en"></p>
+                    <div class="teacher-description-text">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View Details Button (SP only) -->
+            <div class="section-view-details-button teachers-view-details-button">
+                <a href="teacher-intro.html" class="view-details-btn">詳細を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Introduction Section -->
+    <section class="books-intro-section">
+        <div class="books-intro-container">
+            <div class="books-intro-content">
+                <div class="books-intro-top">
+                    <div class="books-title-bg">BOOKS</div>
+                </div>
+                <p class="books-intro-text">
+                    参考書と講義動画を組み合わせて学習することで、より効果的に理解を深めることができます。<br>
+                    参考書で要点を確認しながら、講義動画で詳しい解説を視聴することで、学習の質が向上します。<br>
+                    ここでは、そんな参考書と講義動画をご紹介します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="books-section">
+        <div class="animated-lines">
+            <div class="line line-horizontal line-1"></div>
+            <div class="line line-horizontal line-2"></div>
+            <div class="line line-horizontal line-3"></div>
+            <div class="line line-vertical line-4"></div>
+            <div class="line line-vertical line-5"></div>
+            <div class="line line-vertical line-6"></div>
+        </div>
+        <div class="books-container">
+            <div class="swiper books-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" 
+                         data-book-title="八澤のたった６時間で古典文法"
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,760円（税込）"
+                         data-book-release="2024年7月16日"
+                         data-book-isbn="978-4-05-305892-8"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" 
+                         data-book-description="参考書の詳細情報がここに表示されます。"
+                         data-book-author="八澤龍之介"
+                         data-book-price="1,870円（税込）"
+                         data-book-release="2022年7月5日"
+                         data-book-isbn="978-4-05-305570-5"
+                         data-book-image="Assets/img/book_page.jpg">
+                        <div class="book-card">
+                            <div class="book-image-wrapper">
+                                <img src="Assets/img/book1.png" alt="Book" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <!-- Book Description -->
+            <div class="book-description-container">
+                <div class="book-description-content">
+                    <h3 class="book-description-title"></h3>
+                    <div class="book-description-layout">
+                        <div class="book-description-left">
+                            <div class="book-description-text">
+                                <p class="book-description-author"></p>
+                                <p class="book-description-price"></p>
+                                <p class="book-description-release"></p>
+                                <p class="book-description-isbn"></p>
+                            </div>
+                        </div>
+                        <div class="book-description-right">
+                            <img src="" alt="Book page" class="book-description-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View Details Button (SP only) -->
+            <div class="section-view-details-button books-view-details-button">
+                <a href="book-intro.html" class="view-details-btn">詳細を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="news-container">
+            <div class="news-top">
+                <div class="news-title-bg">NEWS</div>
+            </div>
+            <div class="news-list">
+                <article class="news-item">
+                    <div class="news-date">2025.11.04</div>
+                    <div class="news-category">大学受験</div>
+                    <div class="news-description">新年度版参考書「学研の図LIVE」発売開始。全科目の要点を1冊で総整理</div>
+                    <div class="news-arrow">→</div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">2025.10.31</div>
+                    <div class="news-category">大学受験</div>
+                    <div class="news-description">大学受験対策参考書に新機能追加。スマホでいつでも復習可能なミニブック付き</div>
+                    <div class="news-arrow">→</div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">2025.10.17</div>
+                    <div class="news-category">大学受験</div>
+                    <div class="news-description">大学受験対策参考書の授業動画を全面リニューアル。理解を深める解説を追加</div>
+                    <div class="news-arrow">→</div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">2025.09.11</div>
+                    <div class="news-category">大学受験</div>
+                    <div class="news-description">大学受験対策参考書に人気講師による名物講義動画を全章に追加</div>
+                    <div class="news-arrow">→</div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">2025.08.25</div>
+                    <div class="news-category">大学受験</div>
+                    <div class="news-description">大学受験参考書のコンパクト授業動画でスピード攻略。最速で最大効果を実現</div>
+                    <div class="news-arrow">→</div>
+                </article>
+            </div>
+            <button class="news-view-all-button">一覧を見る</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="Assets/img/footer-logo.png" alt="Gakken" class="footer-logo-image">
+                    </div>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <span class="contact-icon">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 0C2.69 0 0 2.69 0 6C0 9.31 2.69 12 6 12C9.31 12 12 9.31 12 6C12 2.69 9.31 0 6 0ZM6 11C3.24 11 1 8.76 1 6C1 3.24 3.24 1 6 1C8.76 1 11 3.24 11 6C11 8.76 8.76 11 6 11Z" fill="white"/>
+                                    <circle cx="6" cy="6" r="2" fill="white"/>
+                                </svg>
+                            </span>
+                            <span class="contact-text">東京都品川区西五反田二丁目11番8号</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1C1.67 1 1 1.67 1 2.5V9.5C1 10.33 1.67 11 2.5 11H9.5C10.33 11 11 10.33 11 9.5V2.5C11 1.67 10.33 1 9.5 1H2.5ZM2.5 2H9.5C9.78 2 10 2.22 10 2.5V9.5C10 9.78 9.78 10 9.5 10H2.5C2.22 10 2 9.78 2 9.5V2.5C2 2.22 2.22 2 2.5 2Z" fill="white"/>
+                                    <path d="M3 3H9V4H3V3ZM3 5H9V6H3V5ZM3 7H7V8H3V7Z" fill="white"/>
+                                </svg>
+                            </span>
+                            <span class="contact-text">03-6431-1001 (代表)</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 2H10V10H2V2ZM3 3V9H9V3H3Z" fill="white"/>
+                                    <path d="M3 3L6 6L9 3" stroke="white" stroke-width="1" fill="none"/>
+                                    <path d="M3 9L6 6L9 9" stroke="white" stroke-width="1" fill="none"/>
+                                </svg>
+                            </span>
+                            <span class="contact-text">info@gakken-ew.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-nav-column">
+                        <a href="#" class="footer-link">プライバシーポリシー</a>
+                        <a href="#" class="footer-link">利用規約</a>
+                        <a href="#" class="footer-link">お問い合わせ</a>
+                    </div>
+                    <div class="footer-nav-column">
+                        <a href="#" class="footer-link">会社概要</a>
+                        <a href="#" class="footer-link">施工実績</a>
+                        <a href="#" class="footer-link">採用情報</a>
+                        <a href="#" class="footer-link">お知らせ</a>
+                        <a href="#" class="footer-link">お問い合わせ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>©2025 株式会社学研ホールディングス. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="Assets/js/index.js"></script>
+</body>
+</html>

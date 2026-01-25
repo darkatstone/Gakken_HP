@@ -6,22 +6,26 @@
     <title>ムビスタ SERIES SITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/css/common.css">
     <link rel="stylesheet" href="Assets/css/top.css">
 </head>
 <body>
+    <div class="fixed-background">
+        <img src="Assets/img/bg-pc.webp" alt="">
+    </div>
     <!-- Fixed Header -->
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image">
+                <a href="index.html"><img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
             </div>
             <nav class="header-right" id="headerNav">
-                <a href="#" class="nav-link">英検</a>
-                <a href="#" class="nav-link">大学受験</a>
-                <a href="#" class="nav-link">TOEIC</a>
+                <a href="english.html" class="nav-link">英検</a>
+                <a href="u-exam.html" class="nav-link">大学受験</a>
+                <a href="toeic.html" class="nav-link">TOEIC</a>
                 <a href="#" class="nav-link">高校入試</a>
-                <button class="header-button">書籍購入者向け動画視聴ページ</button>
+                <a href="video-viewer.html" class="header-button">書籍購入者向け動画視聴ページ</a>
             </nav>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニュー">
                 <span></span>
@@ -36,44 +40,23 @@
         <!-- Dots Container -->
         <div class="hero-dots-container" id="heroDotsContainer"></div>
         <!-- Background Shapes -->
-        <div class="shapes-container">
-            <!-- Growing Circles -->
-            <div class="growing-circle circle-large circle-grow-1"></div>
-            <div class="growing-circle circle-small circle-grow-2"></div>
-            <div class="growing-circle circle-large circle-grow-3"></div>
-            <div class="growing-circle circle-small circle-grow-4"></div>
-            <!-- Animated Lines -->
-            <div class="animated-line line-top-to-bottom line-1"></div>
-            <div class="animated-line line-left-to-right line-2"></div>
-            <div class="animated-line line-bottom-to-top line-3"></div>
-            <div class="animated-line line-right-to-left line-4"></div>
-            <div class="animated-line line-top-to-bottom line-5"></div>
-            <div class="animated-line line-left-to-right line-6"></div>
-            <div class="animated-line line-bottom-to-top line-7"></div>
-            <div class="animated-line line-right-to-left line-8"></div>
-            <div class="animated-line line-top-to-bottom line-9"></div>
-            <div class="animated-line line-left-to-right line-10"></div>
-            <div class="animated-line line-bottom-to-top line-11"></div>
-            <div class="animated-line line-right-to-left line-12"></div>
-        </div>
 
         <!-- Hero Text - Centered -->
         <div class="hero-text-container">
-            <!-- Top Image (SP only) -->
-            <div class="hero-image-sp hero-image-top">
-                <div class="hero-circle-sp circle-large"></div>
-            </div>
             
             <div class="hero-text-left">
                 <h1 class="hero-title-left" id="heroTitle">
-                    <span class="hero-title-part1">学びは</span>
-                    <span class="hero-title-part2">再生できる</span>
+                    <span class="hero-title-part1"><span class="hero-title-emphasis">学び</span>は</span>
+                    <span class="hero-title-part2"><span class="hero-title-emphasis">再生</span>できる</span>
                 </h1>
+                <div class="hero-title-image">
+                    <img src="Assets/img/bg1 (2).png" alt="Studying illustration" class="hero-title-image-img">
+                </div>
             </div>
             
-            <!-- Bottom Image (SP only) -->
-            <div class="hero-image-sp hero-image-bottom">
-                <div class="hero-circle-sp circle-large"></div>
+            <!-- Right Image -->
+            <div class="hero-image-right">
+                <img src="Assets/img/bg1 (1).png" alt="Learning illustration" class="hero-main-image">
             </div>
         </div>
 
@@ -82,6 +65,16 @@
             <div class="scroll-arrow">↓</div>
         </div>
     </main>
+
+    <!-- Fixed Bottom Buttons -->
+    <div class="fixed-bottom-buttons">
+        <a href="video-viewer.html" class="fixed-cta-button">
+            <span class="cta-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </span>
+            <span class="cta-text">書籍購入者向け動画視聴ページ</span>
+        </a>
+    </div>
 
     <!-- Sidebar Toggle Button -->
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="メニュー">
@@ -101,21 +94,17 @@
                 <img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image">
             </div>
             <nav class="sidebar-nav">
-                <a href="#" class="sidebar-link">英検</a>
-                <a href="#" class="sidebar-link">大学受験</a>
-                <a href="#" class="sidebar-link">TOEIC</a>
+                <a href="english.html" class="sidebar-link">英検</a>
+                <a href="u-exam.html" class="sidebar-link">大学受験</a>
+                <a href="toeic.html" class="sidebar-link">TOEIC</a>
                 <a href="#" class="sidebar-link">高校入試</a>
-                <button class="sidebar-button">書籍購入者向け動画視聴ページ</button>
+                <a href="video-viewer.html" class="sidebar-button">書籍購入者向け動画視聴ページ</a>
             </nav>
         </div>
     </div>
 
     <!-- Statement Section -->
     <section class="statement-section">
-        <div class="statement-dots-container" id="statementDotsContainer"></div>
-        <!-- Scroll Progress Rectangles -->
-        <div class="statement-rectangle statement-rectangle-top-left"></div>
-        <div class="statement-rectangle statement-rectangle-bottom-right"></div>
         <div class="statement-content">
             <!-- Top Section -->
             <div class="statement-top">
@@ -161,12 +150,12 @@
             <!-- Bottom Section - Two Columns -->
             <div class="about-bottom">
                 <div class="about-text-wrapper">
-                    <p class="about-text-small about-text-1"><strong>試験対策</strong>に必要な各科目の<strong>要点</strong>を<strong>1冊</strong>で<strong>総整理</strong>。<br/>
-                    <strong>人気講師</strong>による「<strong>超</strong>」がつくほど<strong>面白くてわかりやすい</strong>授業動画が<strong>全章</strong>に付いて、
-                    <strong>自宅にいながら</strong><strong>試験対策</strong>に必要な学習を<strong>スピード攻略</strong>できます。</p>
+                    <p class="about-text-small about-text-1">試験対策に必要な各科目の要点を1冊で総整理。<br/>
+                    人気講師による「超」がつくほど面白くてわかりやすい授業動画が全章に付いて、
+                    自宅にいながら試験対策に必要な学習をスピード攻略できます。</p>
                 </div>
                 <div class="about-image-wrapper">
-                    <img src="Assets/img/study.png" alt="学習している人" class="about-person-image">
+                    <img src="Assets/img/about.png" alt="学習している人" class="about-person-image">
                 </div>
             </div>
         </div>
@@ -174,10 +163,10 @@
 
     <!-- Features Section -->
     <section class="features-section" id="featuresSection">
-        <div class="features-top">
-            <div class="features-title-bg">FEATURES</div>
-        </div>
         <div class="features-container">
+            <div class="features-top">
+                <div class="features-title-bg">FEATURES</div>
+            </div>
             <!-- Feature 1 -->
             <div class="feature-item feature-1" id="featureSection1">
                 <div class="feature-1-rectangle"></div>
@@ -216,7 +205,7 @@
                         </div>
                         <div class="feature-text-wrapper">
                             <h2 class="feature-title"><span class="feature-title-highlight">最速</span>で<span class="feature-title-highlight">最大効果</span>スマホで一流の講義</h2>
-                            <p class="feature-description">コンパクトにまとった授業動画でスピード攻略　各科目の要点を短時間でまとめた授業動画が全章に付いています。最速で最大効果を生む一流講義を、スマホひとつで受けることができます。</p>
+                            <p class="feature-description">コンパクトにまとめた授業動画で、スピード攻略。各科目の要点を短時間で学べる授業動画が、全章に付いています。最速で最大の効果を生む一流講義を、スマホひとつで受講できます。</p>
                         </div>
                     </div>
                 </div>

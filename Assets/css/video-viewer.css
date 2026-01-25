@@ -1,0 +1,576 @@
+/* ===== PAGE-SPECIFIC STYLES FOR VIDEO-VIEWER.HTML ===== */
+/* Common styles are in common.css */
+
+/* ===== HERO DOTS ===== */
+.hero-dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-dot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+/* ===== SHAPES CONTAINER ===== */
+.shapes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* Animated Lines */
+.animated-line {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.line-top-to-bottom {
+    width: 3px;
+    height: 250px;
+    top: -250px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 163, 244, 0.8), rgba(66, 176, 255, 0.9), rgba(0, 163, 244, 0.8), transparent);
+}
+
+.line-left-to-right {
+    width: 250px;
+    height: 3px;
+    left: -250px;
+    background: linear-gradient(to right, transparent, rgba(0, 163, 244, 0.8), rgba(66, 176, 255, 0.9), rgba(0, 163, 244, 0.8), transparent);
+}
+
+.line-bottom-to-top {
+    width: 3px;
+    height: 250px;
+    bottom: -250px;
+    background: linear-gradient(to top, transparent, rgba(0, 163, 244, 0.8), rgba(66, 176, 255, 0.9), rgba(0, 163, 244, 0.8), transparent);
+}
+
+.line-right-to-left {
+    width: 250px;
+    height: 3px;
+    right: -250px;
+    background: linear-gradient(to left, transparent, rgba(0, 163, 244, 0.8), rgba(66, 176, 255, 0.9), rgba(0, 163, 244, 0.8), transparent);
+}
+
+.line-1 { left: 10%; }
+.line-2 { top: 15%; }
+.line-3 { right: 20%; }
+.line-4 { bottom: 25%; }
+.line-5 { left: 35%; }
+.line-6 { top: 45%; }
+.line-7 { right: 55%; }
+.line-8 { bottom: 60%; }
+.line-9 { left: 70%; }
+.line-10 { top: 75%; }
+.line-11 { right: 80%; }
+.line-12 { bottom: 85%; }
+
+@keyframes moveTopToBottom {
+    0% {
+        top: -250px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+@keyframes moveLeftToRight {
+    0% {
+        left: -250px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: 100vw;
+        opacity: 0;
+    }
+}
+
+@keyframes moveBottomToTop {
+    0% {
+        bottom: -250px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+    }
+}
+
+@keyframes moveRightToLeft {
+    0% {
+        right: -250px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        right: 100vw;
+        opacity: 0;
+    }
+}
+
+/* ===== VIDEO VIEWER HERO SECTION ===== */
+.video-viewer-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgb(31, 119, 252) 0%,rgb(0, 142, 243) 50%, rgb(31, 119, 252));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 120px;
+    z-index: 100;
+}
+
+.video-viewer-hero-text-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 60px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video-viewer-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+.video-viewer-hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
+
+.video-viewer-content-section {
+    position: relative;
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+}
+
+.video-viewer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.video-viewer-intro {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-viewer-intro-image {
+    flex: 0 0 50%;
+    max-width: 500px;
+}
+
+.video-intro-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-viewer-intro-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.video-intro-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333333;
+    margin: 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+/* Video Viewer How to Use Section */
+.video-viewer-howto-section {
+    position: relative;
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+}
+
+.video-viewer-howto-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1bb8ce;
+    text-align: center;
+    margin: 0 0 60px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.video-viewer-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-viewer-step {
+    position: relative;
+    background: #ffffff;
+    border: none;
+    border-radius: 100px;
+    padding: 24px 30px;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: -20px;
+    font-size: 48px;
+    font-weight: 400;
+    color: #1bb8ce;
+    line-height: 1;
+    font-family: "Notable", sans-serif;
+    padding: 0 8px;
+}
+
+.step-content {
+    width: 100%;
+    padding: 0;
+}
+
+.step-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #1bb8ce;
+    margin: 0;
+    padding: 0 40px;
+    text-align: center;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+/* Book ID and Password Section */
+.video-viewer-id-section {
+    padding: 80px 20px;
+    background: transparent;
+}
+
+.video-viewer-id-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1bb8ce;
+    text-align: center;
+    margin: 0 0 50px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.video-viewer-id-image-wrapper {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-viewer-id-image {
+    width: auto;
+    height: auto;
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+
+.video-viewer-login-button-wrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.video-viewer-login-button {
+    display: inline-block;
+    background: #1bb8ce;
+    color: #ffffff;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.video-viewer-login-button:hover {
+    background: #2A9FE0;
+}
+
+/* Responsive styles for video viewer */
+@media (max-width: 1024px) {
+    .video-viewer-hero-title {
+        font-size: 40px;
+    }
+    
+    .video-viewer-hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .video-viewer-intro {
+        gap: 40px;
+    }
+    
+    .video-intro-text {
+        font-size: 16px;
+    }
+    
+    .video-viewer-howto-title {
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+    
+    .step-number {
+        font-size: 40px;
+        top: -12px;
+        left: 18px;
+    }
+    
+    .video-viewer-step {
+        padding: 20px 25px;
+    }
+    
+    .step-content p {
+        font-size: 15px;
+    }
+    
+    .video-viewer-id-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .video-viewer-id-image {
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-viewer-hero-section {
+        padding-top: 80px;
+        min-height: 50vh;
+    }
+    
+    .video-viewer-hero-text-container {
+        padding: 0 40px;
+    }
+    
+    .video-viewer-hero-title {
+        font-size: 32px;
+    }
+    
+    .video-viewer-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .video-viewer-content-section {
+        padding: 60px 30px;
+    }
+    
+    .video-viewer-intro {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .video-viewer-intro-image {
+        flex: 0 0 auto;
+        max-width: 100%;
+    }
+    
+    .video-viewer-intro-text {
+        flex: 0 0 auto;
+    }
+    
+    .video-intro-text {
+        font-size: 15px;
+    }
+    
+    .video-viewer-howto-section {
+        padding: 60px 30px;
+    }
+    
+    .video-viewer-howto-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    
+    .video-viewer-steps {
+        gap: 35px;
+    }
+    
+    .video-viewer-step {
+        padding: 18px 20px;
+    }
+    
+    .step-number {
+        font-size: 36px;
+        top: -10px;
+        left: 15px;
+    }
+    
+    .step-content p {
+        font-size: 14px;
+        padding: 0 30px;
+    }
+    
+    .video-viewer-id-section {
+        padding: 60px 20px;
+    }
+    
+    .video-viewer-id-title {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+    
+    .video-viewer-id-image {
+        max-width: 80%;
+    }
+    
+    .video-viewer-login-button {
+        padding: 14px 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 580px) {
+    .video-viewer-hero-section {
+        padding-top: 70px;
+        min-height: 50vh;
+    }
+    
+    .video-viewer-hero-text-container {
+        padding: 0 20px;
+    }
+    
+    .video-viewer-hero-title {
+        font-size: 24px;
+    }
+    
+    .video-viewer-hero-subtitle {
+        font-size: 14px;
+    }
+    
+    .video-viewer-content-section {
+        padding: 40px 20px;
+    }
+    
+    .video-viewer-intro {
+        gap: 20px;
+    }
+    
+    .video-intro-text {
+        font-size: 14px;
+    }
+    
+    .video-viewer-howto-section {
+        padding: 40px 20px;
+    }
+    
+    .video-viewer-howto-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .video-viewer-steps {
+        gap: 30px;
+    }
+    
+    .video-viewer-step {
+        padding: 16px 18px;
+    }
+    
+    .step-number {
+        font-size: 32px;
+        top: -8px;
+        left: 12px;
+    }
+    
+    .step-content p {
+        font-size: 13px;
+        padding: 0 20px;
+    }
+    
+    .video-viewer-id-section {
+        padding: 40px 15px;
+    }
+    
+    .video-viewer-id-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .video-viewer-id-image {
+        max-width: 85%;
+    }
+    
+    .video-viewer-login-button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}

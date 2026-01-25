@@ -1,0 +1,608 @@
+/* ===== PAGE-SPECIFIC STYLES FOR TEACHER-INTRO.HTML ===== */
+/* Common styles are in common.css */
+
+/* ===== HERO DOTS ===== */
+.hero-dots-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-dot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+/* ===== TEACHER INTRODUCTION HERO SECTION ===== */
+.teacher-intro-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgb(31, 119, 252) 0%,rgb(0, 142, 243) 50%, rgb(31, 119, 252));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 120px;
+    z-index: 100;
+}
+
+.teacher-intro-hero-text-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 60px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.teacher-intro-hero-title-jp {
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1em;
+}
+
+.teacher-intro-hero-title-en {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Teacher Detail Section */
+.teacher-detail-section {
+    position: relative;
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.teacher-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.teacher-detail-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.teacher-detail-left {
+    flex: 0 0 350px;
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+    height: fit-content;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+}
+
+.teacher-detail-right {
+    flex: 1;
+}
+
+.teacher-detail-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.teacher-detail-image-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.teacher-detail-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-detail-play-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teacher-detail-play-button:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.teacher-detail-name-jp {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 8px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-name-en {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+    margin: 0 0 20px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.teacher-detail-social {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333333;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    background: #1bb8ce;
+    transform: translateY(-2px);
+}
+
+.teacher-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.teacher-detail-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(27, 184, 206, 0.1);
+    color: #1bb8ce;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-intro,
+.teacher-detail-video,
+.teacher-detail-books {
+    margin-bottom: 60px;
+}
+
+.teacher-detail-intro-title,
+.teacher-detail-video-title,
+.teacher-detail-books-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1bb8ce;
+    margin: 0 0 20px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+    line-height: 1.8;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-description p {
+    margin: 0;
+}
+
+.teacher-detail-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #1bb8ce;
+}
+
+.teacher-detail-video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.teacher-detail-video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-detail-video-play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teacher-detail-video-play-overlay:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.teacher-detail-books-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.teacher-detail-book-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: transparent;
+    border-radius: 12px;
+}
+
+.teacher-detail-book-top {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.teacher-detail-book-image-wrapper {
+    flex: 0 0 150px;
+    display: flex;
+    align-items: center;
+}
+
+.teacher-detail-book-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-detail-book-info {
+    flex: 1;
+}
+
+.teacher-detail-book-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1bb8ce;
+    margin: 0 0 12px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-book-author,
+.teacher-detail-book-price,
+.teacher-detail-book-release,
+.teacher-detail-book-isbn {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+    margin: 0 0 8px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.teacher-detail-book-bottom {
+    text-align: left;
+    margin-top: 16px;
+}
+
+.teacher-detail-book-button {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #1bb8ce;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.teacher-detail-book-button:hover {
+    background: #2A9FE0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1bb8ce;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.back-link:hover {
+    background: #2A9FE0;
+}
+
+.teacher-detail-back-button {
+    display: inline-block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px 20px;
+    background: #1bb8ce;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.teacher-detail-back-button:hover {
+    background: #2A9FE0;
+    transform: translateY(-2px);
+}
+
+.teacher-detail-back-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive styles for teacher detail */
+@media (max-width: 1024px) {
+    .teacher-detail-layout {
+        gap: 40px;
+    }
+    
+    .teacher-detail-left {
+        flex: 0 0 300px;
+    }
+    
+    .teacher-detail-books-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .teacher-detail-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .teacher-detail-left {
+        flex: 0 0 auto;
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    
+    .teacher-detail-left::after {
+        display: none;
+    }
+    
+    .teacher-detail-profile {
+        position: static;
+    }
+    
+    .teacher-detail-back-button {
+        width: 100%;
+        max-width: 300px;
+        margin: 30px auto 0 auto;
+    }
+    
+    .teacher-detail-image-wrapper {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px auto;
+    }
+    
+    .teacher-detail-name-jp {
+        font-size: 24px;
+    }
+    
+    .teacher-detail-name-en {
+        font-size: 12px;
+    }
+    
+    .teacher-detail-intro-title,
+    .teacher-detail-video-title,
+    .teacher-detail-books-title {
+        font-size: 20px;
+    }
+    
+    .teacher-detail-description {
+        font-size: 14px;
+    }
+    
+    .teacher-detail-books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .teacher-detail-book-item {
+        flex-direction: column;
+    }
+    
+    .teacher-detail-book-image-wrapper {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 580px) {
+    .teacher-detail-section {
+        padding: 60px 20px;
+    }
+    
+    .teacher-detail-layout {
+        gap: 30px;
+    }
+    
+    .teacher-detail-back-button {
+        width: 100%;
+        max-width: 300px;
+        margin: 30px auto 0 auto;
+        display: block;
+    }
+    
+    .teacher-detail-image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .teacher-detail-name-jp {
+        font-size: 20px;
+    }
+    
+    .teacher-detail-name-en {
+        font-size: 11px;
+    }
+    
+    .teacher-detail-intro,
+    .teacher-detail-video,
+    .teacher-detail-books {
+        margin-bottom: 40px;
+    }
+    
+    .teacher-detail-intro-title,
+    .teacher-detail-video-title,
+    .teacher-detail-books-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .teacher-detail-description {
+        font-size: 12px;
+    }
+    
+    .teacher-detail-book-image-wrapper {
+        max-width: 150px;
+    }
+    
+    .teacher-detail-book-item {
+        padding: 15px;
+        position: relative;
+    }
+    
+    .teacher-detail-book-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        right: 15px;
+        height: 1px;
+        background: #e0e0e0;
+    }
+    
+    .teacher-detail-book-title {
+        font-size: 16px;
+    }
+    
+    .teacher-detail-book-author,
+    .teacher-detail-book-price,
+    .teacher-detail-book-release,
+    .teacher-detail-book-isbn {
+        font-size: 12px;
+    }
+    
+    .teacher-detail-book-button {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
+
+/* Responsive styles for teacher intro hero */
+@media (max-width: 1024px) {
+    .teacher-intro-hero-title-jp {
+        font-size: 48px;
+    }
+    
+    .teacher-intro-hero-title-en {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .teacher-intro-hero-section {
+        padding-top: 80px;
+        min-height: 60vh;
+    }
+    
+    .teacher-intro-hero-text-container {
+        padding: 0 40px;
+    }
+    
+    .teacher-intro-hero-title-jp {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    
+    .teacher-intro-hero-title-en {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 580px) {
+    .teacher-intro-hero-section {
+        padding-top: 70px;
+        min-height: 60vh;
+    }
+    
+    .teacher-intro-hero-text-container {
+        padding: 0 20px;
+    }
+    
+    .teacher-intro-hero-title-jp {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .teacher-intro-hero-title-en {
+        font-size: 16px;
+        letter-spacing: 0.15em;
+    }
+}

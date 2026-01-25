@@ -13,7 +13,7 @@ const featuresData = {
     2: {
         imageSrc: 'Assets/img/feature2.png',
         title: '最速で最大効果スマホで一流の講義',
-        description: 'コンパクトにまとった授業動画でスピード攻略　各科目の要点を短時間でまとめた授業動画が全章に付いています。最速で最大効果を生む一流講義を、スマホひとつで受けることができます。',
+        description: 'コンパクトにまとめた授業動画で、スピード攻略。各科目の要点を短時間で学べる授業動画が、全章に付いています。最速で最大の効果を生む一流講義を、スマホひとつで受講できます。',
         summary: '最速で最大効果スマホで一流の講義',
         layout: 'image-right', // image on right, text on left
         circleNumber: '02',
@@ -303,56 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
         statementTextObserver.observe(statementSection);
         statementCircleObserver.observe(statementSection);
         
-        // Scroll progress rectangles
-        const rectTopLeft = document.querySelector('.statement-rectangle-top-left');
-        const rectBottomRight = document.querySelector('.statement-rectangle-bottom-right');
-        
-        function updateStatementRectangles() {
-            if (!statementSection || !rectTopLeft || !rectBottomRight) return;
-            
-            const rect = statementSection.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const sectionHeight = statementSection.offsetHeight;
-            const sectionTop = rect.top;
-            const sectionBottom = rect.bottom;
-            
-            // Calculate progress based on section center position
-            // Progress grows from 0 to 1 as section center approaches viewport center
-            // Then shrinks from 1 to 0 as section center passes viewport center
-            let progress = 0;
-            
-            if (sectionTop < windowHeight && sectionBottom > 0) {
-                // Section is in viewport
-                const sectionCenter = sectionTop + (sectionHeight / 2);
-                const viewportCenter = windowHeight / 2;
-                
-                // Distance from section center to viewport center
-                const distance = Math.abs(sectionCenter - viewportCenter);
-                
-                // Maximum distance is when section center is at viewport top or bottom
-                const maxDistance = windowHeight / 2 + sectionHeight / 2;
-                
-                // Progress is 1 when section center is at viewport center (distance = 0)
-                // Progress is 0 when section center is far from viewport center
-                // This creates a bell curve: grows to center, then shrinks
-                progress = Math.max(0, 1 - (distance / maxDistance));
-            }
-            
-            // Maximum width is 1/4 (25%) of screen width
-            const maxWidth = window.innerWidth * 0.25;
-            const currentWidth = maxWidth * progress;
-            
-            rectTopLeft.style.width = currentWidth + 'px';
-            rectBottomRight.style.width = currentWidth + 'px';
-        }
-        
-        // Update on scroll
-        window.addEventListener('scroll', updateStatementRectangles, { passive: true });
-        window.addEventListener('resize', updateStatementRectangles);
-        
-        // Initial update
-        updateStatementRectangles();
-        
         // Also check scroll position on scroll event
         window.addEventListener('scroll', function() {
             if (window.scrollY === 0) {
@@ -417,6 +367,54 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px'
     };
     
+    // Teachers Intro Section Title Observer
+    const teachersIntroSection = document.querySelector('.teachers-intro-section');
+    if (teachersIntroSection) {
+        const teachersTitleObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const teachersTitleObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                const teachersTitle = document.querySelector('.teachers-intro-top .teachers-title-bg');
+                if (teachersTitle) {
+                    if (entry.isIntersecting) {
+                        teachersTitle.classList.add('visible');
+                    } else {
+                        teachersTitle.classList.remove('visible');
+                    }
+                }
+            });
+        }, teachersTitleObserverOptions);
+        
+        teachersTitleObserver.observe(teachersIntroSection);
+    }
+    
+    // Books Intro Section Title Observer
+    const booksIntroSection = document.querySelector('.books-intro-section');
+    if (booksIntroSection) {
+        const booksTitleObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const booksTitleObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                const booksTitle = document.querySelector('.books-intro-top .books-title-bg');
+                if (booksTitle) {
+                    if (entry.isIntersecting) {
+                        booksTitle.classList.add('visible');
+                    } else {
+                        booksTitle.classList.remove('visible');
+                    }
+                }
+            });
+        }, booksTitleObserverOptions);
+        
+        booksTitleObserver.observe(booksIntroSection);
+    }
+    
     // News Section Title Observer
     const newsSection = document.querySelector('.news-section');
     if (newsSection) {
@@ -476,7 +474,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Header visibility and mobile menu button based on Hero section scroll
     const header = document.querySelector('.header');
-    const heroSection = document.querySelector('.hero-section');
+    const heroSection = document.querySelector('.hero-section') || document.querySelector('.teacher-intro-hero-section') || document.querySelector('.book-intro-hero-section') || document.querySelector('.video-viewer-hero-section');
+    const fixedBottomButtons = document.querySelector('.fixed-bottom-buttons');
     
     function updateHeaderVisibility() {
         if (!heroSection || !header) return;
@@ -491,10 +490,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (sidebarToggle) {
                 sidebarToggle.classList.add('visible');
             }
+            if (fixedBottomButtons) {
+                fixedBottomButtons.classList.add('visible');
+            }
         } else {
             header.classList.remove('header-hidden');
             if (sidebarToggle) {
                 sidebarToggle.classList.remove('visible');
+            }
+            if (fixedBottomButtons) {
+                fixedBottomButtons.classList.remove('visible');
             }
         }
     }
@@ -506,7 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         updateHeaderVisibility();
     });
-    
+
     // Feature items animation - show only the item whose center is at viewport center
     const featureItems = document.querySelectorAll('.feature-item');
     
@@ -724,7 +729,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Create dots for hero section
     function createHeroDots() {
-        const heroSection = document.querySelector('.hero-section');
+        const heroSection = document.querySelector('.hero-section') || 
+                          document.querySelector('.teacher-intro-hero-section') || 
+                          document.querySelector('.book-intro-hero-section') || 
+                          document.querySelector('.video-viewer-hero-section');
         const dotsContainer = document.getElementById('heroDotsContainer');
         
         if (!heroSection || !dotsContainer) return;
@@ -734,7 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const sectionWidth = heroSection.offsetWidth;
         const sectionHeight = heroSection.offsetHeight;
-        const dotSpacing = 50; // Space between dots
+        const dotSpacing = 40; // Space between dots (matching index.html)
         const dotSize = 2; // Size of each dot
         
         // Calculate number of dots needed
@@ -757,13 +765,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         createHeroDots();
         createAboutDots();
-        createStatementDots();
     });
     
     window.addEventListener('resize', function() {
         createHeroDots();
         createAboutDots();
-        createStatementDots();
     });
     
     // Create dots for about section
@@ -797,20 +803,397 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Create dots for statement section
-    function createStatementDots() {
-        const statementSection = document.querySelector('.statement-section');
-        const dotsContainer = document.getElementById('statementDotsContainer');
+    // Initialize Swiper for Teachers Section
+    const teachersSwiperElement = document.querySelector('.teachers-swiper');
+    if (teachersSwiperElement) {
+        const teachersSwiper = new Swiper('.teachers-swiper', {
+            slidesPerView: 5,
+            spaceBetween: 20,
+            loop: true,
+            centeredSlides: true,
+            initialSlide: 0,
+            speed: 1000,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.teachers-swiper .swiper-button-next',
+                prevEl: '.teachers-swiper .swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: false
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                    centeredSlides: true
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                    centeredSlides: true
+                }
+            },
+            on: {
+                slideChange: function() {
+                    updateTeacherDescription(this);
+                }
+            }
+        });
         
-        if (!statementSection || !dotsContainer) return;
+        // Function to update teacher description
+        function updateTeacherDescription(swiper) {
+            // With centeredSlides: true, realIndex already points to the centered slide
+            const realIndex = swiper.realIndex;
+            
+            // Get the slide at realIndex (this is the centered slide when centeredSlides is true)
+            // In loop mode, we need to find the actual slide, not a duplicate
+            let activeSlide = null;
+            const slides = swiper.slides;
+            
+            // Find the slide that corresponds to realIndex
+            // Swiper uses data-swiper-slide-index attribute for this in loop mode
+            for (let i = 0; i < slides.length; i++) {
+                const slideIndex = parseInt(slides[i].getAttribute('data-swiper-slide-index') || '-1');
+                if (slideIndex === realIndex && !slides[i].classList.contains('swiper-slide-duplicate')) {
+                    activeSlide = slides[i];
+                    break;
+                }
+            }
+            
+            // Fallback: if not found, try to get by realIndex directly
+            if (!activeSlide) {
+                // Get all non-duplicate slides
+                const nonDuplicateSlides = slides.filter(slide => 
+                    !slide.classList.contains('swiper-slide-duplicate')
+                );
+                if (nonDuplicateSlides[realIndex]) {
+                    activeSlide = nonDuplicateSlides[realIndex];
+                } else if (slides[realIndex]) {
+                    activeSlide = slides[realIndex];
+                }
+            }
+            
+            const descriptionContainer = document.querySelector('.teacher-description-container');
+            const nameJpEl = descriptionContainer?.querySelector('.teacher-description-name-jp');
+            const nameEnEl = descriptionContainer?.querySelector('.teacher-description-name-en');
+            const descriptionTextEl = descriptionContainer?.querySelector('.teacher-description-text p');
+            
+            if (activeSlide && descriptionContainer) {
+                // Get data from active slide or from the card content
+                const card = activeSlide.querySelector('.teacher-card');
+                if (card) {
+                    const nameJp = card.querySelector('.teacher-name-jp')?.textContent || '';
+                    const nameEn = card.querySelector('.teacher-name-en')?.textContent || '';
+                    
+                    // Get description from data attribute or use default
+                    const description = activeSlide.getAttribute('data-teacher-description') || 
+                                      `${nameJp}の詳細情報がここに表示されます。`;
+                    
+                    if (nameJpEl) nameJpEl.textContent = nameJp;
+                    if (nameEnEl) nameEnEl.textContent = nameEn;
+                    if (descriptionTextEl) descriptionTextEl.textContent = description;
+                }
+            }
+        }
+        
+        // Initialize description on page load
+        if (teachersSwiper) {
+            updateTeacherDescription(teachersSwiper);
+        }
+        
+        // Add click event to teacher cards
+        // Add click event to book cards
+        const bookCards = document.querySelectorAll('.book-card');
+        bookCards.forEach((card) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                const slide = card.closest('.swiper-slide');
+                const title = slide?.getAttribute('data-book-title') || '';
+                const author = slide?.getAttribute('data-book-author') || '';
+                const price = slide?.getAttribute('data-book-price') || '';
+                const releaseDate = slide?.getAttribute('data-book-release') || '';
+                const isbn = slide?.getAttribute('data-book-isbn') || '';
+                const previewImage = slide?.getAttribute('data-book-image') || 'Assets/img/book_page.jpg';
+                const coverImage = card.querySelector('.book-image')?.src || 'Assets/img/book1.png';
+                const description = slide?.getAttribute('data-book-description') || '';
+                
+                // Store book data in sessionStorage
+                const bookData = {
+                    title: title,
+                    author: author,
+                    price: price,
+                    releaseDate: releaseDate,
+                    isbn: isbn,
+                    previewImage: previewImage,
+                    coverImage: coverImage,
+                    description: description,
+                    instructorImage: 'Assets/img/study.png', // Video thumbnail image
+                    authorImage: 'Assets/img/teacher1.png', // Author profile image (can be different)
+                    instructorDescription: '株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。<br>チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。'
+                };
+                
+                sessionStorage.setItem('bookData', JSON.stringify(bookData));
+                window.location.href = 'book-intro.html';
+            });
+        });
+        
+        const teacherCards = document.querySelectorAll('.teacher-card');
+        teacherCards.forEach((card, index) => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                const slide = card.closest('.swiper-slide');
+                const nameJp = card.querySelector('.teacher-name-jp')?.textContent || '';
+                const nameEn = card.querySelector('.teacher-name-en')?.textContent || '';
+                const description = slide?.getAttribute('data-teacher-description') || '';
+                const imageSrc = card.querySelector('.teacher-image')?.src || '';
+                
+                // Get tags
+                const tagElements = card.querySelectorAll('.teacher-tag');
+                const tags = Array.from(tagElements).map(tag => tag.textContent.trim()).filter(tag => tag);
+                
+                // Store teacher data in sessionStorage
+                sessionStorage.setItem('teacherData', JSON.stringify({
+                    nameJp: nameJp,
+                    nameEn: nameEn,
+                    description: description,
+                    imageSrc: imageSrc,
+                    tags: tags
+                }));
+                
+                // Navigate to teacher intro page
+                window.location.href = 'teacher-intro.html';
+            });
+        });
+        
+        // Handle "View Details" button click for teachers section
+        const teachersViewDetailsBtn = document.querySelector('.teachers-view-details-button .view-details-btn');
+        if (teachersViewDetailsBtn) {
+            teachersViewDetailsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the first teacher card (or active one if Swiper is initialized)
+                let teacherCard = null;
+                const teachersSwiper = document.querySelector('.teachers-swiper');
+                
+                if (teachersSwiper && teachersSwiper.swiper) {
+                    // Get the active slide's teacher card
+                    const activeSlide = teachersSwiper.swiper.slides[teachersSwiper.swiper.activeIndex];
+                    teacherCard = activeSlide?.querySelector('.teacher-card');
+                }
+                
+                // Fallback to first teacher card if no active slide found
+                if (!teacherCard) {
+                    teacherCard = document.querySelector('.teacher-card');
+                }
+                
+                if (teacherCard) {
+                    const slide = teacherCard.closest('.swiper-slide');
+                    const nameJp = teacherCard.querySelector('.teacher-name-jp')?.textContent || '';
+                    const nameEn = teacherCard.querySelector('.teacher-name-en')?.textContent || '';
+                    const description = slide?.getAttribute('data-teacher-description') || '';
+                    const imageSrc = teacherCard.querySelector('.teacher-image')?.src || '';
+                    
+                    // Get tags
+                    const tagElements = teacherCard.querySelectorAll('.teacher-tag');
+                    const tags = Array.from(tagElements).map(tag => tag.textContent.trim()).filter(tag => tag);
+                    
+                    // Store teacher data in sessionStorage
+                    sessionStorage.setItem('teacherData', JSON.stringify({
+                        nameJp: nameJp,
+                        nameEn: nameEn,
+                        description: description,
+                        imageSrc: imageSrc,
+                        tags: tags
+                    }));
+                }
+                
+                // Navigate to teacher intro page
+                window.location.href = 'teacher-intro.html';
+            });
+        }
+    }
+    
+    // Handle "View Details" button click for books section
+    const booksViewDetailsBtn = document.querySelector('.books-view-details-button .view-details-btn');
+    if (booksViewDetailsBtn) {
+        booksViewDetailsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the first book card (or active one if Swiper is initialized)
+            let bookCard = null;
+            const booksSwiper = document.querySelector('.books-swiper');
+            
+            if (booksSwiper && booksSwiper.swiper) {
+                // Get the active slide's book card
+                const activeSlide = booksSwiper.swiper.slides[booksSwiper.swiper.activeIndex];
+                bookCard = activeSlide?.querySelector('.book-card');
+            }
+            
+            // Fallback to first book card if no active slide found
+            if (!bookCard) {
+                bookCard = document.querySelector('.book-card');
+            }
+            
+            if (bookCard) {
+                const slide = bookCard.closest('.swiper-slide');
+                const title = slide?.getAttribute('data-book-title') || '';
+                const author = slide?.getAttribute('data-book-author') || '';
+                const price = slide?.getAttribute('data-book-price') || '';
+                const releaseDate = slide?.getAttribute('data-book-release') || slide?.getAttribute('data-book-release-date') || '';
+                const isbn = slide?.getAttribute('data-book-isbn') || '';
+                const previewImage = slide?.getAttribute('data-book-image') || bookCard.querySelector('.book-image')?.src || 'Assets/img/book_page.jpg';
+                const coverImage = bookCard.querySelector('.book-image')?.src || 'Assets/img/book1.png';
+                const description = slide?.getAttribute('data-book-description') || '';
+                
+                // Store book data in sessionStorage
+                const bookData = {
+                    title: title,
+                    author: author,
+                    price: price,
+                    releaseDate: releaseDate,
+                    isbn: isbn,
+                    previewImage: previewImage,
+                    coverImage: coverImage,
+                    description: description,
+                    instructorImage: 'Assets/img/study.png', // Video thumbnail image
+                    authorImage: 'Assets/img/teacher1.png', // Author profile image
+                    instructorDescription: '株式会社mooble 代表取締役社長・難関私大専門塾マナビズム代表。高校3年生のときに「人の夢を叶える人になる」ことを自分の人生のテーマに決め、起業家になることを決意。関西大学法学部在学中にアルバイトを掛け持ちして資金を貯め、19歳で学習塾FCとして独立。22歳でFCから脱退し、オリジナルブランドの学習塾である「マナビズム」を立ち上げる。教育系YouTuberとしても活動しており、これまで1000名以上を難関大に合格させてきたノウハウや勉強法を受験生に発信している。<br>チャンネル登録者は4.8万人以上。これが認められ、様々な有名大学のオープンキャンパスで講演や受験対策講座を請け負っている。'
+                };
+                
+                sessionStorage.setItem('bookData', JSON.stringify(bookData));
+            }
+            
+            // Navigate to book intro page
+            window.location.href = 'book-intro.html';
+        });
+    }
+    
+    // Initialize Swiper for Books Section
+    const booksSwiperElement = document.querySelector('.books-swiper');
+    if (booksSwiperElement) {
+        const booksSwiper = new Swiper('.books-swiper', {
+            slidesPerView: 5,
+            spaceBetween: 20,
+            loop: true,
+            centeredSlides: true,
+            initialSlide: 0,
+            speed: 1000,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.books-swiper .swiper-button-next',
+                prevEl: '.books-swiper .swiper-button-prev',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: false
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                    centeredSlides: true
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                    centeredSlides: true
+                }
+            },
+            on: {
+                slideChange: function() {
+                    updateBookDescription(this);
+                }
+            }
+        });
+        
+        // Function to update book description
+        function updateBookDescription(swiper) {
+            // With centeredSlides: true, realIndex already points to the centered slide
+            const realIndex = swiper.realIndex;
+            
+            // Get the slide at realIndex (this is the centered slide when centeredSlides is true)
+            let activeSlide = null;
+            const slides = swiper.slides;
+            
+            // Find the slide that corresponds to realIndex
+            for (let i = 0; i < slides.length; i++) {
+                const slideIndex = parseInt(slides[i].getAttribute('data-swiper-slide-index') || '-1');
+                if (slideIndex === realIndex && !slides[i].classList.contains('swiper-slide-duplicate')) {
+                    activeSlide = slides[i];
+                    break;
+                }
+            }
+            
+            // Fallback: if not found, try to get by realIndex directly
+            if (!activeSlide) {
+                const nonDuplicateSlides = slides.filter(slide => 
+                    !slide.classList.contains('swiper-slide-duplicate')
+                );
+                if (nonDuplicateSlides[realIndex]) {
+                    activeSlide = nonDuplicateSlides[realIndex];
+                } else if (slides[realIndex]) {
+                    activeSlide = slides[realIndex];
+                }
+            }
+            
+            const descriptionContainer = document.querySelector('.book-description-container');
+            const titleEl = descriptionContainer?.querySelector('.book-description-title');
+            const authorEl = descriptionContainer?.querySelector('.book-description-author');
+            const priceEl = descriptionContainer?.querySelector('.book-description-price');
+            const releaseEl = descriptionContainer?.querySelector('.book-description-release');
+            const isbnEl = descriptionContainer?.querySelector('.book-description-isbn');
+            const imageEl = descriptionContainer?.querySelector('.book-description-image');
+            
+            if (activeSlide && descriptionContainer) {
+                // Get book information from data attributes
+                const title = activeSlide.getAttribute('data-book-title') || '参考書タイトル';
+                const author = activeSlide.getAttribute('data-book-author') || '';
+                const price = activeSlide.getAttribute('data-book-price') || '';
+                const release = activeSlide.getAttribute('data-book-release') || '';
+                const isbn = activeSlide.getAttribute('data-book-isbn') || '';
+                const image = activeSlide.getAttribute('data-book-image') || '';
+                
+                if (titleEl) titleEl.textContent = title;
+                if (authorEl) authorEl.textContent = author ? `著者：${author}` : '';
+                if (priceEl) priceEl.textContent = price ? `本体価格：${price}` : '';
+                if (releaseEl) releaseEl.textContent = release ? `発売日：${release}` : '';
+                if (isbnEl) isbnEl.textContent = isbn ? `ISBN：${isbn}` : '';
+                if (imageEl && image) {
+                    imageEl.src = image;
+                    imageEl.alt = title || 'Book page';
+                }
+            }
+        }
+        
+        // Initialize description on page load
+        if (booksSwiper) {
+            updateBookDescription(booksSwiper);
+        }
+    }
+    
+    // Create dots for teachers section
+    function createTeachersDots() {
+        const teachersSection = document.querySelector('.teachers-section');
+        const dotsContainer = document.getElementById('teachersDotsContainer');
+        
+        if (!teachersSection || !dotsContainer) return;
         
         // Clear existing dots
         dotsContainer.innerHTML = '';
         
-        const sectionWidth = statementSection.offsetWidth;
-        const sectionHeight = statementSection.offsetHeight;
-        const dotSpacing = 50; // Space between dots
-        const dotSize = 2; // Size of each dot
+        const sectionWidth = teachersSection.offsetWidth;
+        const sectionHeight = teachersSection.offsetHeight;
+        const dotSpacing = 60; // Space between dots
+        const dotSize = 3; // Size of each dot
         
         // Calculate number of dots needed
         const cols = Math.ceil(sectionWidth / dotSpacing);
@@ -820,7 +1203,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
                 const dot = document.createElement('div');
-                dot.className = 'statement-dot';
+                dot.className = 'teachers-dot';
                 dot.style.left = (col * dotSpacing) + 'px';
                 dot.style.top = (row * dotSpacing) + 'px';
                 dotsContainer.appendChild(dot);
@@ -828,97 +1211,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Wrap each character in hero title with span for animation
-    function wrapHeroTitleCharacters() {
-        const heroTitle = document.getElementById('heroTitle');
-        if (!heroTitle) return;
-        
-        const part1 = heroTitle.querySelector('.hero-title-part1');
-        const part2 = heroTitle.querySelector('.hero-title-part2');
-        
-        let totalCharIndex = 0;
-        
-        if (part1 && !part1.querySelector('.hero-char')) {
-            const text1 = part1.textContent;
-            part1.innerHTML = text1.split('').map((char) => {
-                if (char === ' ') return ' ';
-                const delay = totalCharIndex * 1; // 1秒ずつ遅延
-                totalCharIndex++;
-                return `<span class="hero-char" style="--char-delay: ${delay}s">${char}</span>`;
-            }).join('');
-        }
-        
-        if (part2 && !part2.querySelector('.hero-char')) {
-            const text2 = part2.textContent;
-            part2.innerHTML = text2.split('').map((char) => {
-                if (char === ' ') return ' ';
-                const delay = totalCharIndex * 1; // 1秒ずつ遅延
-                totalCharIndex++;
-                return `<span class="hero-char" style="--char-delay: ${delay}s">${char}</span>`;
-            }).join('');
-        }
-        
-        // 全体のアニメーション時間を文字数×1秒に設定し、各文字に個別のキーフレームを生成
-        const allChars = heroTitle.querySelectorAll('.hero-char');
-        const totalChars = allChars.length;
-        if (totalChars > 0) {
-            const totalDuration = totalChars * 1; // 文字数×1秒
-            
-            // 各文字に個別のアニメーションを生成
-            allChars.forEach((char, index) => {
-                const delaySeconds = index * 1; // 各文字の開始遅延（秒）
-                const delayPercent = (delaySeconds / totalDuration) * 100; // パーセンテージに変換
-                const charDurationPercent = (1 / totalDuration) * 100; // 1秒分のパーセンテージ
-                const charStartPercent = delayPercent;
-                const charMidPercent = delayPercent + (charDurationPercent * 0.5);
-                const charEndPercent = delayPercent + charDurationPercent;
-                
-                // 各文字に個別のアニメーション名を付ける
-                const animationName = `charPulse-${index}`;
-                char.style.animation = `${animationName} ${totalDuration}s ease-in-out infinite`;
-                char.style.animationDelay = '0s'; // delayはキーフレーム内で処理
-                
-                // 個別のキーフレームを生成
-                const styleId = `hero-char-animation-${index}`;
-                let existingStyle = document.getElementById(styleId);
-                if (existingStyle) {
-                    existingStyle.remove();
-                }
-                
-                const style = document.createElement('style');
-                style.id = styleId;
-                style.textContent = `
-                    @keyframes ${animationName} {
-                        0% {
-                            transform: scale(1);
-                        }
-                        ${charStartPercent}% {
-                            transform: scale(1);
-                        }
-                        ${charMidPercent}% {
-                            transform: scale(1.3);
-                        }
-                        ${charEndPercent}% {
-                            transform: scale(1);
-                        }
-                        100% {
-                            transform: scale(1);
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            });
-        }
-    }
+    // Create dots on load and resize
+    window.addEventListener('load', function() {
+        createTeachersDots();
+    });
     
-    // Initialize hero title character animation
-    window.addEventListener('load', wrapHeroTitleCharacters);
-    // Also run on DOMContentLoaded in case load event already fired
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', wrapHeroTitleCharacters);
-    } else {
-        wrapHeroTitleCharacters();
-    }
+    window.addEventListener('resize', function() {
+        createTeachersDots();
+    });
     
 });
 

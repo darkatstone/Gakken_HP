@@ -1,0 +1,935 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.header.header-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    backdrop-filter: blur(2px);
+    border-radius: 100px;
+    padding: 0 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 163, 244, 0.1);
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    height: 80px;
+    transition: box-shadow 0.3s ease;
+}
+
+.header-container:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 163, 244, 0.2);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-image {
+    height: auto;
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-right a {
+    cursor: pointer;
+}
+
+.nav-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.3s;
+    cursor: pointer;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.header-button {
+    background: linear-gradient(135deg, #00A3F4 0%, #0088D1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 150px;
+    padding: 14px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 163, 244, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.header-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.header-button:hover::before {
+    left: 100%;
+}
+
+.header-button:hover {
+    background: linear-gradient(135deg, #0088D1 0%, #0066A3 100%);
+    box-shadow: 0 6px 20px rgba(0, 163, 244, 0.4);
+    transform: translateY(-2px);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 2.5px;
+    background: #000;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== FOOTER SECTION ===== */
+.footer-section {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(0deg, rgb(7, 82, 194) 0%, rgb(58, 173, 255) 60%, rgb(255, 255, 255) 100%);
+    padding: 120px 40px 80px 40px;
+    color: #ffffff;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-left {
+    flex: 0 0 auto;
+}
+
+.footer-logo {
+    margin-bottom: 32px;
+}
+
+.footer-logo-image {
+    height: 40px;
+    width: auto;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+}
+
+.contact-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-text {
+    line-height: 1.5;
+}
+
+.footer-right {
+    display: flex;
+    gap: 60px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.footer-nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-link {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.footer-link:hover {
+    opacity: 0.8;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 40px 0 24px 0;
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-copyright p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sidebar-toggle.visible {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    z-index: 3000000;
+}
+
+.sidebar-toggle:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-toggle span {
+    width: 24px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.sidebar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.sidebar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    max-width: 85vw;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 3000000;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar-menu.active {
+    right: 0;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: none;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.sidebar-content {
+    padding: 40px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    z-index: 30000000;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    color: #000;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-close:hover {
+    transform: rotate(90deg);
+}
+
+.sidebar-logo {
+    margin-bottom: 40px;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.sidebar-logo .logo-image {
+    max-height: 60px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.sidebar-link:hover {
+    color: #00A3F4;
+}
+
+.sidebar-button {
+    background: linear-gradient(135deg, #00A3F4 0%, #0088D1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 150px;
+    padding: 14px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 163, 244, 0.3);
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sidebar-button:hover {
+    background: linear-gradient(135deg, #0088D1 0%, #0066A3 100%);
+    box-shadow: 0 6px 20px rgba(0, 163, 244, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ===== FIXED BOTTOM BUTTONS ===== */
+.fixed-bottom-buttons {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 300000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fixed-bottom-buttons.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fixed-cta-button {
+    background: #007AB6;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px 8px 0 0;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.fixed-cta-button:hover {
+    background: #006291;
+    transform: translateY(-2px);
+}
+
+.contact-icon{
+    display: flex;
+}
+
+.cta-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    display: flex;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .header {
+        padding: 0 20px;
+        height: 80px;
+        top: 20px;
+    }
+    
+    .header-container {
+        height: 80px;
+        padding: 0 20px;
+    }
+    
+    .logo-image {
+        max-height: 60px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .header-right {
+        display: none;
+    }
+    
+    .footer-section {
+        padding: 60px 30px 30px 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .footer-right {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+    
+    .footer-logo-image {
+        height: 35px;
+    }
+    
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer-contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 80px;
+        top: 20px;
+    }
+    
+    .header-container {
+        height: 80px;
+        padding: 0 20px;
+    }
+    
+    .logo-image {
+        max-height: 50px;
+    }
+    
+    .footer-section {
+        padding: 60px 20px 40px 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-right {
+        gap: 30px;
+    }
+    
+    .footer-nav-column {
+        width: 100%;
+    }
+    
+    .contact-item {
+        font-size: 14px;
+    }
+    
+    .footer-link {
+        font-size: 14px;
+    }
+    
+    .footer-copyright p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 580px) {
+    .header {
+        padding: 0 15px;
+        height: 70px;
+        top: 15px;
+    }
+    
+    .header-container {
+        height: 70px;
+        padding: 0 15px;
+    }
+    
+    .logo-image {
+        max-height: 40px;
+    }
+    
+    .footer-section {
+        padding: 40px 15px 30px 15px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .footer-right {
+        gap: 25px;
+    }
+    
+    .contact-item {
+        font-size: 13px;
+    }
+    
+    .footer-link {
+        font-size: 13px;
+    }
+    
+    .footer-copyright p {
+        font-size: 11px;
+    }
+    
+    .sidebar-menu {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .fixed-bottom-buttons {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fixed-cta-button {
+        width: 100%;
+        justify-content: center;
+        border-radius: 0;
+        padding: 16px 20px;
+    }
+}
+
+/* ===== NEWS SECTION ===== */
+.news-section {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    padding: 100px 40px 150px 40px;
+    min-height: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
+.news-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.news-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.news-title-bg {
+    position: relative;
+    font-size: 42px;
+    font-weight: 700;
+    color: #1bb8ce;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.news-title-bg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(66, 176, 255, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.news-item:hover {
+    background-color: rgba(66, 176, 255, 0.05);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-date {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    min-width: 120px;
+    margin-right: 24px;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.news-category {
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    background: #1bb8ce;
+    padding: 6px 16px;
+    border-radius: 20px;
+    min-width: fit-content;
+    margin-right: 24px;
+    white-space: nowrap;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.news-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    flex: 1;
+    line-height: 1.6;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.news-arrow {
+    font-size: 20px;
+    color: #1bb8ce;
+    margin-left: 16px;
+    min-width: 24px;
+    text-align: right;
+}
+
+.news-view-all-button {
+    display: block;
+    margin: 0 auto;
+    padding: 16px 48px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffffff;
+    background: #1bb8ce;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.news-view-all-button:hover {
+    background: #2A9FE0;
+    transform: translateY(-2px);
+}
+
+.news-view-all-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for News Section */
+@media (max-width: 1024px) {
+    .news-section {
+        padding: 0px 30px 120px 30px;
+    }
+    
+    .news-title-bg {
+        font-size: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .news-item {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .news-date {
+        min-width: 100px;
+        margin-right: 16px;
+    }
+    
+    .news-category {
+        margin-right: 16px;
+    }
+    
+    .news-description {
+        width: 100%;
+        order: 3;
+    }
+    
+    .news-arrow {
+        order: 2;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-section {
+        padding: 0px 20px 100px 20px;
+    }
+    
+    .news-title-bg {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .news-item {
+        position: relative;
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .news-date {
+        min-width: auto;
+        margin-right: 0;
+        font-size: 14px;
+    }
+    
+    .news-category {
+        margin-right: 0;
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    
+    .news-description {
+        font-size: 14px;
+        width: 100%;
+        order: 3;
+    }
+    
+    .news-arrow {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        order: 2;
+        margin-left: 0;
+    }
+    
+    .news-view-all-button {
+        padding: 14px 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 580px) {
+    .news-section {
+        padding: 30px 20px;
+    }
+    
+    .news-top {
+        margin-bottom: 30px;
+    }
+}
+
+/* ===== FIXED BACKGROUND ===== */
+.fixed-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+    pointer-events: none;
+}
+
+.fixed-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+@media (max-width: 768px) {
+    .fixed-background {
+        display: none;
+    }
+}
