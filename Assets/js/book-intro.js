@@ -1,10 +1,16 @@
 // Book Introduction Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Load data first
+    await loadAllData();
+    
     // Get book data from sessionStorage
     const bookDataStr = sessionStorage.getItem('bookData');
     
     if (bookDataStr) {
         const bookData = JSON.parse(bookDataStr);
+        
+        // Get author teacher data if available
+        const author = bookData.authorId ? getTeacherById(bookData.authorId) : null;
         
         // Populate book detail section
         const bookDetailContainer = document.querySelector('.book-detail-container');
@@ -23,53 +29,155 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p class="book-detail-meta"><strong>ISBN:</strong> ${bookData.isbn || 'ISBN'}</p>
                             </div>
                         </div>
-                        <a href="javascript:history.back()" class="book-detail-back-button">戻る</a>
                     </div>
                     <div class="book-detail-right">
                         <div class="book-detail-section-block">
-                            <h3 class="book-detail-section-title">${bookData.title || '本のタイトル'}</h3>
+                            <h3 class="book-detail-section-title">IMAGE</h3>
                             <div class="book-detail-preview-images">
-                                <div class="book-preview-image-wrapper">
-                                    <img src="${bookData.previewImage || 'Assets/img/book_page.jpg'}" alt="本の内容プレビュー1" class="book-preview-image">
-                                </div>
-                                <div class="book-preview-image-wrapper">
-                                    <img src="${bookData.previewImage || 'Assets/img/book_page.jpg'}" alt="本の内容プレビュー2" class="book-preview-image">
-                                </div>
-                                <div class="book-preview-image-wrapper">
-                                    <img src="${bookData.previewImage || 'Assets/img/book_page.jpg'}" alt="本の内容プレビュー3" class="book-preview-image">
-                                </div>
+                                ${(bookData.previewImages || [bookData.previewImage || 'Assets/img/book_page.jpg']).map((img, index) => `
+                                    <div class="book-preview-image-wrapper">
+                                        <img src="${img}" alt="本の内容プレビュー${index + 1}" class="book-preview-image">
+                                    </div>
+                                `).join('')}
                             </div>
                         </div>
                         <div class="book-detail-section-block">
-                            <h3 class="book-detail-section-title">講師の動画</h3>
+                            <h3 class="book-detail-section-title">SAMPLE</h3>
                             <div class="book-detail-video-main">
-                                <img src="${bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師の動画" class="book-detail-video-thumbnail">
-                                <div class="book-detail-play-button">
-                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="30" cy="30" r="30" fill="#FF0000"/>
-                                        <path d="M24 18L42 30L24 42V18Z" fill="white"/>
-                                    </svg>
+                                <video class="book-detail-video-element" preload="auto" muted>
+                                    <source src="${bookData.videoUrl || ''}" type="video/mp4">
+                                    お使いのブラウザは動画タグをサポートしていません。
+                                </video>
+                                <div class="book-detail-video-play-overlay">
+                                    <div class="book-detail-video-play-button">
+                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="40" r="40" fill="#FF0000" fill-opacity="0.9"/>
+                                            <path d="M32 24L32 56L56 40L32 24Z" fill="white"/>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="book-detail-section-block">
-                            <h3 class="book-detail-section-title">著者紹介</h3>
+                            <h3 class="book-detail-section-title">PROFILE</h3>
                             <div class="book-detail-instructor-profile">
                                 <div class="book-detail-instructor-image-wrapper">
-                                    <img src="${bookData.authorImage || bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師" class="book-detail-instructor-image">
+                                    <img src="${author?.image || bookData.authorImage || bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師" class="book-detail-instructor-image">
                                 </div>
                                 <div class="book-detail-instructor-description">
-                                    <p>${bookData.instructorDescription || '講師の説明文がここに表示されます。'}</p>
+                                    <p>${author?.description || bookData.instructorDescription || bookData.description || '講師の説明文がここに表示されます。'}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
+            
+            // Handle video display - support both regular videos and YouTube URLs
+            const videoElement = bookDetailContainer.querySelector('.book-detail-video-element');
+            const playOverlay = bookDetailContainer.querySelector('.book-detail-video-play-overlay');
+            const videoMain = bookDetailContainer.querySelector('.book-detail-video-main');
+            
+            if (videoElement && bookData.videoUrl) {
+                const videoUrl = bookData.videoUrl;
+                
+                // Check if it's a YouTube URL
+                if (videoUrl.includes('youtube.com/watch') || videoUrl.includes('youtu.be/') || videoUrl.includes('youtube.com/embed/')) {
+                    // Extract YouTube video ID
+                    let videoId = '';
+                    if (videoUrl.includes('youtube.com/embed/')) {
+                        // Embed format: https://www.youtube.com/embed/VIDEO_ID
+                        videoId = videoUrl.split('youtube.com/embed/')[1]?.split('?')[0] || '';
+                    } else if (videoUrl.includes('youtube.com/watch')) {
+                        videoId = videoUrl.split('v=')[1]?.split('&')[0] || '';
+                    } else if (videoUrl.includes('youtu.be/')) {
+                        videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0] || '';
+                    }
+                    
+                    if (videoId) {
+                        // Get YouTube thumbnail (first frame)
+                        const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                        
+                        // Replace video element with YouTube thumbnail and iframe
+                        if (videoMain) {
+                            videoMain.innerHTML = `
+                                <img src="${thumbnailUrl}" alt="Video thumbnail" class="book-detail-video-thumbnail" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                                <div class="book-detail-video-play-overlay">
+                                    <div class="book-detail-video-play-button">
+                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="40" r="40" fill="#FF0000" fill-opacity="0.9"/>
+                                            <path d="M32 24L32 56L56 40L32 24Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <iframe class="book-detail-video-iframe" style="display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            `;
+                            
+                            // Add click handler to play YouTube video
+                            const thumbnail = videoMain.querySelector('.book-detail-video-thumbnail');
+                            const overlay = videoMain.querySelector('.book-detail-video-play-overlay');
+                            const iframe = videoMain.querySelector('.book-detail-video-iframe');
+                            
+                            const playYouTube = function() {
+                                if (thumbnail) thumbnail.style.display = 'none';
+                                if (overlay) overlay.style.display = 'none';
+                                if (iframe) {
+                                    iframe.src = embedUrl;
+                                    iframe.style.display = 'block';
+                                }
+                            };
+                            
+                            if (thumbnail) {
+                                thumbnail.style.cursor = 'pointer';
+                                thumbnail.addEventListener('click', playYouTube);
+                            }
+                            if (overlay) {
+                                overlay.style.cursor = 'pointer';
+                                overlay.addEventListener('click', playYouTube);
+                            }
+                        }
+                    }
+                } else {
+                    // Regular video file - show first frame
+                    videoElement.addEventListener('loadedmetadata', function() {
+                        videoElement.currentTime = 0.1;
+                    });
+                    
+                    videoElement.addEventListener('loadeddata', function() {
+                        videoElement.currentTime = 0.1;
+                    });
+                    
+                    const playVideo = function() {
+                        if (videoElement.paused) {
+                            videoElement.muted = false;
+                            videoElement.play();
+                            videoElement.setAttribute('controls', 'controls');
+                            if (playOverlay) {
+                                playOverlay.style.display = 'none';
+                            }
+                        }
+                    };
+                    
+                    videoElement.style.cursor = 'pointer';
+                    videoElement.addEventListener('click', playVideo);
+                    
+                    if (playOverlay) {
+                        playOverlay.style.cursor = 'pointer';
+                        playOverlay.addEventListener('click', playVideo);
+                    }
+                    
+                    videoElement.addEventListener('play', function() {
+                        if (playOverlay) {
+                            playOverlay.style.display = 'none';
+                        }
+                    });
+                }
+            }
         }
         
-        // Clear sessionStorage after use
-        sessionStorage.removeItem('bookData');
+        // Keep sessionStorage data for page reload
+        // sessionStorage.removeItem('bookData'); // Removed to preserve data on reload
     } else {
         // If no book data, redirect back or show message
         const bookDetailContainer = document.querySelector('.book-detail-container');

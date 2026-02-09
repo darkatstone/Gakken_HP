@@ -1696,65 +1696,42 @@
     gap: 20px;
 }
 
-/* Circle with number before text */
-.feature-1 .features-summary-text::before {
-    content: '1';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #1bb8ce;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 600;
-    flex-shrink: 0;
+/* Circle with feature label and number before text */
+.features-summary-text {
+    position: relative;
+    padding-left: 60px;
 }
 
-.feature-2 .features-summary-text::before {
-    content: '2';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+.feature-badge {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: #1bb8ce;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    z-index: 1;
 }
 
-.feature-3 .features-summary-text::before {
-    content: '3';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #1bb8ce;
+.feature-label {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 600;
-    flex-shrink: 0;
+    line-height: 1;
+    margin-bottom: 2px;
 }
 
-.feature-4 .features-summary-text::before {
-    content: '4';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #1bb8ce;
+.feature-number {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    flex-shrink: 0;
+    line-height: 1;
 }
 
 /* Center line after text */
@@ -2100,13 +2077,21 @@
     }
     
     /* Smaller circle numbers on tablet */
-    .feature-1 .features-summary-text::before,
-    .feature-2 .features-summary-text::before,
-    .feature-3 .features-summary-text::before,
-    .feature-4 .features-summary-text::before {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+    .features-summary-text {
+        padding-left: 50px;
+    }
+    
+    .feature-badge {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .feature-label {
+        font-size: 12px;
+    }
+    
+    .feature-number {
+        font-size: 20px;
     }
 }
 
@@ -2190,13 +2175,22 @@
     }
     
     /* Smaller circle numbers on mobile */
-    .feature-1 .features-summary-text::before,
-    .feature-2 .features-summary-text::before,
-    .feature-3 .features-summary-text::before,
-    .feature-4 .features-summary-text::before {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
+    .features-summary-text {
+        padding-left: 38px;
+    }
+    
+    .feature-badge {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .feature-label {
+        font-size: 10px;
+        margin-bottom: 1px;
+    }
+    
+    .feature-number {
+        font-size: 16px;
     }
     
     /* On mobile, always show all feature items (no fade in/out) */

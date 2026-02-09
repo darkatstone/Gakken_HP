@@ -4,28 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講師紹介 | ムビスタ SERIES SITE</title>
+    <meta name="description" content="ムビスタシリーズの講師紹介ページ。各講師のプロフィール、サンプル動画、担当教材などをご覧いただけます。">
+    <meta name="keywords" content="ムビスタ,講師紹介,教育,学習指導">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://example.com/teacher-intro.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/teacher-intro.html">
+    <meta property="og:title" content="講師紹介 | ムビスタ SERIES SITE">
+    <meta property="og:description" content="ムビスタシリーズの講師紹介ページ。各講師のプロフィール、サンプル動画、担当教材などをご覧いただけます。">
+    <meta property="og:image" content="https://example.com/Assets/img/common/header_logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://example.com/teacher-intro.html">
+    <meta property="twitter:title" content="講師紹介 | ムビスタ SERIES SITE">
+    <meta property="twitter:description" content="ムビスタシリーズの講師紹介ページ。各講師のプロフィール、サンプル動画、担当教材などをご覧いただけます。">
+    <meta property="twitter:image" content="https://example.com/Assets/img/common/header_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/css/common.css">
     <link rel="stylesheet" href="Assets/css/teacher-intro.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
     <div class="fixed-background">
-        <img src="Assets/img/bg-pc.webp" alt="">
+        <img src="Assets/img/common/bg-pc.webp" alt="ムビスタ SERIES SITE 背景画像">
     </div>
+    <!-- Fixed Back Button -->
+    <a href="javascript:history.back()" class="teacher-detail-fixed-back-button" aria-label="戻る">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 21H19C19.5523 21 20 20.5523 20 20V4C20 3.44772 19.5523 3 19 3H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 17L3 12L8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
     <!-- Fixed Header -->
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <a href="index.html"><img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+                <a href="index.html"><img src="Assets/img/common/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
             </div>
             <nav class="header-right" id="headerNav">
-                <a href="english.html" class="nav-link">英検</a>
                 <a href="u-exam.html" class="nav-link">大学受験</a>
+                <a href="high-school-exam.html" class="nav-link">高校入試</a>
+                <a href="english.html" class="nav-link">英検</a>
                 <a href="toeic.html" class="nav-link">TOEIC</a>
-                <a href="#" class="nav-link">高校入試</a>
                 <a href="video-viewer.html" class="header-button">書籍購入者向け動画視聴ページ</a>
             </nav>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="メニュー">
@@ -90,13 +115,13 @@
         <div class="sidebar-content">
             <button class="sidebar-close" id="sidebarClose" aria-label="閉じる">×</button>
                 <div class="sidebar-logo">
-                    <a href="index.html"><img src="Assets/img/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+                    <a href="index.html"><img src="Assets/img/common/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
                 </div>
             <nav class="sidebar-nav">
-                <a href="english.html" class="sidebar-link">英検</a>
                 <a href="u-exam.html" class="sidebar-link">大学受験</a>
+                <a href="high-school-exam.html" class="sidebar-link">高校入試</a>
+                <a href="english.html" class="sidebar-link">英検</a>
                 <a href="toeic.html" class="sidebar-link">TOEIC</a>
-                <a href="#" class="sidebar-link">高校入試</a>
                 <a href="video-viewer.html" class="sidebar-button">書籍購入者向け動画視聴ページ</a>
             </nav>
         </div>
@@ -115,7 +140,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <img src="Assets/img/footer-logo.png" alt="Gakken" class="footer-logo-image">
+                        <img src="Assets/img/common/footer-logo.png" alt="Gakken" class="footer-logo-image">
                     </div>
                     <div class="footer-contact">
                         <div class="contact-item">
@@ -170,7 +195,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="Assets/js/teachers-data.js"></script>
+    <script src="Assets/js/books-data.js"></script>
+    <script src="Assets/js/page-mapping.js"></script>
+    <script src="Assets/js/data-loader.js"></script>
     <script src="Assets/js/index.js"></script>
     <script src="Assets/js/teacher-intro.js"></script>
 </body>

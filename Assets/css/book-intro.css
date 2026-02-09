@@ -94,12 +94,12 @@
 
 .book-detail-left {
     flex: 0 0 350px;
-    position: sticky;
-    top: 120px;
     align-self: flex-start;
     height: fit-content;
     max-height: calc(100vh - 140px);
     overflow-y: auto;
+    position: sticky;
+    top: 120px;
 }
 
 .book-detail-profile {
@@ -199,23 +199,45 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.book-detail-video-thumbnail {
+.book-detail-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.book-detail-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    background: #000000;
 }
 
-.book-detail-play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+.book-detail-video-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.book-detail-video-play-overlay:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.book-detail-video-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.book-detail-video-play-button:hover {
+    transform: scale(1.1);
 }
 
 .book-detail-instructor-profile {
@@ -268,30 +290,42 @@
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
 }
 
-.book-detail-back-button {
-    display: inline-block;
-    width: 100%;
-    margin-top: 30px;
-    padding: 12px 20px;
-    background: #1bb8ce;
-    color: #ffffff;
+.book-detail-fixed-back-button {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(27, 184, 206, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #1bb8ce;
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-    transition: background 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(27, 184, 206, 0.3);
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 16px rgba(27, 184, 206, 0.1);
 }
 
-.book-detail-back-button:hover {
-    background: #2A9FE0;
+.book-detail-fixed-back-button:hover {
+    background: rgba(27, 184, 206, 0.3);
+    border-color: rgba(27, 184, 206, 0.5);
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(27, 184, 206, 0.2);
 }
 
-.book-detail-back-button:active {
+.book-detail-fixed-back-button:active {
     transform: translateY(0);
+}
+
+.book-detail-fixed-back-button svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive styles for book detail */
@@ -322,10 +356,16 @@
         top: 0;
     }
     
-    .book-detail-back-button {
-        width: 100%;
-        max-width: 300px;
-        margin: 30px auto 0 auto;
+    .book-detail-fixed-back-button {
+        top: 15px;
+        left: 15px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .book-detail-fixed-back-button svg {
+        width: 18px;
+        height: 18px;
     }
     
     .book-detail-preview-images {
@@ -365,9 +405,17 @@
         padding: 60px 20px;
     }
     
-    .book-detail-back-button {
-        width: 100%;
-        max-width: 300px;
+    .book-detail-fixed-back-button {
+        top: 12px;
+        left: 12px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .book-detail-fixed-back-button svg {
+        width: 16px;
+        height: 16px;
+    }
         margin: 30px auto 0 auto;
         display: block;
     }

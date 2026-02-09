@@ -1,10 +1,6 @@
 /* ===== PAGE-SPECIFIC STYLES FOR ENGLISH.HTML ===== */
 /* Common styles are in common.css */
 
-/* View Details Button (hidden on desktop/tablet) */
-.section-view-details-button {
-    display: none;
-}
 
 /* ===== HERO SECTION ===== */
 .hero-section {
@@ -312,7 +308,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 60px;
 }
 
 .teachers-title-bg {
@@ -355,7 +350,7 @@
 .teachers-section {
     position: relative;
     width: 100%;
-    padding: 80px 40px;
+    padding: 0 40px 80px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -374,7 +369,6 @@
     position: relative;
     z-index: 2;
     background: #ffffff;
-    border: 1px solid #1bb8ce;
     border-radius: 30px;
     padding: 60px;
     box-sizing: border-box;
@@ -394,86 +388,46 @@
     text-align: left;
     pointer-events: none;
     white-space: nowrap;
-    margin-bottom: 14px;
 }
 
-/* Swiper Carousel */
-.teachers-swiper {
+/* Teachers Grid Layout */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     width: 100%;
-    padding: 0 60px 0 60px;
-    margin-bottom: 0;
-    flex: 1;
-    display: flex;
-    align-items: center;
+    padding: 40px 0;
 }
 
-.teachers-swiper .swiper-slide {
-    height: auto;
+.teacher-grid-item {
     display: flex;
     justify-content: center;
-    transition: transform 0.3s ease;
 }
 
-.teachers-swiper .swiper-slide-active {
-    z-index: 2;
+.teacher-grid-item .teacher-card {
+    width: 100%;
 }
 
-.teachers-swiper .swiper-slide-active .teacher-card {
-    transform: scale(1.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.swiper-wrapper {
-    padding-block: 40px;
+@media (max-width: 1200px) {
+    .teachers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
 }
 
 @media (max-width: 768px) {
-    .swiper-wrapper {
-        padding-block: 0px;
-    }
+    .teachers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px 0;
+}
 }
 
-.teachers-swiper .swiper-button-next,
-.teachers-swiper .swiper-button-prev {
-    color: #42B0FF;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.teachers-swiper .swiper-button-next:hover,
-.teachers-swiper .swiper-button-prev:hover {
-    background: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    transform: scale(1.1);
-}
-
-.teachers-swiper .swiper-button-next::after,
-.teachers-swiper .swiper-button-prev::after {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* Hide navigation buttons on mobile */
 @media (max-width: 580px) {
-    .teachers-swiper {
-        padding: 0 0 0 0;
-    }
-    
-    .teachers-swiper .swiper-button-next,
-    .teachers-swiper .swiper-button-prev {
-        display: none;
-    }
-    
-    .teachers-swiper .swiper-slide {
-        width: 100% !important;
-    }
-    
-    .teachers-swiper .swiper-slide-active .teacher-card {
-        transform: scale(1); /* No scaling on mobile */
+    .teachers-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px 0;
     }
     
     .teacher-card {
@@ -486,39 +440,21 @@
     }
 }
 
-.teachers-swiper .swiper-pagination {
-    bottom: 0;
-}
-
-.teachers-swiper .swiper-pagination-bullet {
-    background: #42B0FF;
-    opacity: 0.5;
-    width: 12px;
-    height: 12px;
-}
-
-.teachers-swiper .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: #42B0FF;
-}
-
 .teacher-card {
     position: relative;
-    background: #ffffff3b;
+    background: transparent;
     border-radius: 16px;
     padding: 15px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .teacher-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(176, 212, 255, 0.3);
 }
 
 
@@ -526,12 +462,12 @@
 .teacher-image-wrapper {
     position: relative;
     width: 170px;
-    height: 195px;
-    aspect-ratio: 170 / 195;
+    height: 170px;
+    aspect-ratio: 1 / 1;
     border-radius: 0;
     background: transparent;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     box-shadow: none;
     z-index: 1;
 }
@@ -543,22 +479,53 @@
     object-fit: cover;
 }
 
+.teacher-subject {
+    margin: 0 0 12px 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.teacher-subject-item {
+    font-size: 10px;
+    font-weight: 400;
+    color: #333333;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 4px 10px;
+    display: inline-block;
+}
+
+.teacher-name-jp-hiragana {
+    position: relative;
+    font-size: 10px;
+    font-weight: 400;
+    color: #999999;
+    margin: 0 0 2px 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    line-height: 1.2;
+}
+
 .teacher-name-jp {
     position: relative;
     font-size: 18px;
     font-weight: 700;
     color: #333333;
-    margin: 0 0 8px 0;
+    margin: 0;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
 }
 
 
 .teacher-name-en {
     position: relative;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
-    color: #333333;
-    margin: 0 0 20px 0;
+    color: #999999;
+    margin: 0 0 12px 0;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -566,67 +533,76 @@
 
 
 .teacher-tags {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .teacher-tag {
     display: inline-block;
-    background: #1bb8ce;
-    color: #ffffff;
+    background: #e0e0e0;
+    color: #333333;
     font-size: 10px;
     font-weight: 400;
-    padding: 4px 8px;
+    padding: 5px 5px;
     border-radius: 20px;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-    white-space: nowrap;
-    flex: 0 0 calc((100% - 16px) / 3);
     text-align: center;
     box-sizing: border-box;
-    min-width: 0;
+    flex: 0 0 calc(33.333% - 6px);
+    max-width: calc(33.333% - 6px);
+    white-space: nowrap;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.teacher-tag-singleline {
+    -webkit-line-clamp: 1;
+    white-space: nowrap;
+}
 
-/* ===== TEACHER DESCRIPTION ===== */
-.teacher-description-container {
-    max-width: 1000px;
-    margin: 30px auto 0 auto;
+.teacher-tag-multiline {
+    -webkit-line-clamp: 2;
+}
+
+.teacher-reference-books {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
     width: 100%;
-    flex-shrink: 0;
+    max-width: 100%;
 }
 
-.teacher-description-content {
+.teacher-reference-book-tag {
+    display: inline-block;
+    background: #f5f5f5;
+    color: #666666;
+    font-size: 9px;
+    font-weight: 400;
+    padding: 1.5px 5px;
+    border-radius: 20px;
+    border: 1px solid #d0d0d0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
+    box-sizing: border-box;
+    flex: 0 0 calc(33.333% - 6px);
+    max-width: calc(33.333% - 6px);
+    line-height: 1.2;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.teacher-description-name-jp {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333333;
-    margin: 0 0 10px 0;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+.teacher-reference-book-tag-singleline {
+    -webkit-line-clamp: 1;
+    white-space: nowrap;
 }
 
-.teacher-description-name-en {
-    font-size: 16px;
-    font-weight: 400;
-    color: #333333;
-    margin: 0 0 30px 0;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.teacher-description-text {
-    font-size: 18px;
-    font-weight: 400;
-    color: #333333;
-    line-height: 1.8;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-}
-
-.teacher-description-text p {
-    margin: 0;
+.teacher-reference-book-tag-multiline {
+    -webkit-line-clamp: 2;
 }
 
 /* ===== BOOKS INTRODUCTION SECTION ===== */
@@ -652,7 +628,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-bottom: 60px;
 }
 
 .books-title-bg {
@@ -669,13 +644,13 @@
     opacity: 0;
     transform: translateY(-30px);
     transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    margin-bottom: 14px;
 }
 
 .books-title-bg.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 .books-intro-text {
     font-size: 18px;
@@ -696,7 +671,7 @@
 .books-section {
     position: relative;
     width: 100%;
-    padding: 80px 40px;
+    padding: 0 40px 80px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -715,7 +690,6 @@
     position: relative;
     z-index: 2;
     background: #ffffff;
-    border: 1px solid #1bb8ce;
     border-radius: 30px;
     padding: 60px;
     box-sizing: border-box;
@@ -853,29 +827,22 @@
     }
 }
 
-/* Swiper Carousel for Books */
-.books-swiper {
+/* Books Grid Layout */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 80px;
     width: 100%;
-    padding: 0 60px 0 60px;
-    margin-bottom: 0;
-    flex: 1;
-    display: flex;
-    align-items: center;
+    padding: 40px 0;
 }
 
-.books-swiper .swiper-slide {
-    height: auto;
+.book-grid-item {
     display: flex;
     justify-content: center;
-    transition: transform 0.3s ease;
 }
 
-.books-swiper .swiper-slide-active {
-    transform: scale(1.1);
-    z-index: 2;
-}
-
-.book-card {
+.book-grid-item .book-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -884,49 +851,34 @@
     border-radius: 16px;
     padding: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 85%;
-    margin: 0 auto;
     cursor: pointer;
 }
 
-.book-card:hover {
+.book-grid-item .book-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.books-swiper .swiper-button-next,
-.books-swiper .swiper-button-prev {
-    color: #42B0FF;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+@media (max-width: 1200px) {
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+}
 }
 
-.books-swiper .swiper-button-next:hover,
-.books-swiper .swiper-button-prev:hover {
-    background: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    transform: scale(1.1);
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 55px;
+        padding: 20px 0;
+}
 }
 
-.books-swiper .swiper-button-next::after,
-.books-swiper .swiper-button-prev::after {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* Hide navigation buttons on mobile */
 @media (max-width: 580px) {
-    .books-swiper {
-        padding: 0 0 0 0;
-    }
-    
-    .books-swiper .swiper-button-next,
-    .books-swiper .swiper-button-prev {
-        display: none;
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 15px 0;
     }
 }
 
@@ -944,111 +896,6 @@
     height: auto;
     border-radius: 0;
     object-fit: cover;
-}
-
-/* Book Description */
-.book-description-container {
-    max-width: 1000px;
-    margin: 30px auto 0 auto;
-    width: 100%;
-    flex-shrink: 0;
-}
-
-.book-description-content {
-    text-align: left;
-}
-
-.book-description-title {
-    font-size: 32px;
-    font-weight: 700;
-    color: #333333;
-    margin: 0 0 60px 0;
-    text-align: center;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-}
-
-.book-description-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.book-description-left {
-    flex: 1;
-}
-
-.book-description-right {
-    flex: 1;
-}
-
-.book-description-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.book-description-text {
-    font-size: 18px;
-    font-weight: 400;
-    color: #333333;
-    line-height: 1.8;
-    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-}
-
-.book-description-text p {
-    margin: 0 0 8px 0;
-}
-
-.book-description-text p:last-child {
-    margin-bottom: 0;
-}
-
-/* Responsive styles for book description */
-@media (max-width: 768px) {
-    .book-description-title {
-        font-size: 28px;
-    }
-    
-    .book-description-layout {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-    
-    .book-description-text {
-        font-size: 16px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 580px) {
-    .book-description-title {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-    
-    .book-description-layout {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-    
-    .book-description-text {
-        font-size: 14px;
-        text-align: center;
-    }
-    .teacher-description-text {
-        font-size: 14px;
-    }
-    
-    .teacher-description-name-jp {
-        display: none;
-    }
-    
-    .teacher-description-name-en {
-        display: none;
-    }
 }
 
 /* Footer and Sidebar styles are in common.css */
@@ -1111,22 +958,26 @@
     }
     
     .teachers-section {
-        padding: 60px 30px;
+        padding: 0 30px 60px;
     }
     
     .books-section {
-        padding: 60px 30px;
+        padding: 0 30px 60px;
     }
     
     .teachers-title-bg {
         font-size: 40px;
-        margin-bottom: 30px;
     }
     
     .teacher-image-wrapper {
         width: 140px;
-        height: auto;
-        aspect-ratio: 170 / 195;
+        height: 140px;
+        aspect-ratio: 1 / 1;
+    }
+    
+    .teacher-subject-item {
+        font-size: 9px;
+        padding: 3px 10px;
     }
     
     .books-grid {
@@ -1196,7 +1047,6 @@
     
     .books-title-bg {
         font-size: 40px;
-        margin-bottom: 30px;
     }
     
     .books-intro-text {
@@ -1204,22 +1054,26 @@
     }
     
     .teachers-section {
-        padding: 50px 30px;
+        padding: 0 30px 50px;
     }
     
     .books-section {
-        padding: 50px 30px;
+        padding: 0 30px 50px;
     }
     
     .teacher-image-wrapper {
         width: 120px;
-        height: auto;
-        aspect-ratio: 170 / 195;
+        height: 120px;
+        aspect-ratio: 1 / 1;
+    }
+    
+    .teacher-subject-item {
+        font-size: 9px;
+        padding: 3px 8px;
     }
     
     .books-title-bg {
         font-size: 40px;
-        margin-bottom: 30px;
     }
     
     .books-grid {
@@ -1303,9 +1157,6 @@
     }
     
 
-    .teachers-intro-top {
-        margin-bottom: 20px;
-    }
     
     .teachers-intro-text {
         font-size: 13px;
@@ -1319,9 +1170,6 @@
         padding: 60px 20px;
     }
     
-    .books-intro-top {
-        margin-bottom: 20px;
-    }
 
     .books-title-bg {
         font-size: 50px;
@@ -1336,16 +1184,15 @@
     }
     
     .teachers-section {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
     }
     
     .books-section {
-        padding: 40px 20px;
+        padding: 0 20px 40px;
     }
     
     .teachers-title-bg {
         font-size: 28px;
-        margin-bottom: 20px;
     }
     
     .teachers-container {
@@ -1366,18 +1213,23 @@
         box-shadow: none;
     }
     
-    .teacher-card:hover {
-        box-shadow: none;
-    }
-    
     .teachers-swiper .swiper-slide-active .teacher-card {
         box-shadow: none;
     }
     
     .teacher-image-wrapper {
         width: 150px;
-        height: auto;
-        aspect-ratio: 170 / 195;
+        height: 150px;
+        aspect-ratio: 1 / 1;
+    }
+    
+    .teacher-subject-item {
+        font-size: 9px;
+        padding: 3px 8px;
+    }
+    
+    .teacher-name-jp-hiragana {
+        font-size: 9px;
     }
     
     .teacher-name-jp {
@@ -1385,22 +1237,61 @@
     }
     
     .teacher-name-en {
-        font-size: 13px;
+        font-size: 9px;
+        color: #999999;
     }
     
     .teacher-tag {
-        font-size: 11px;
-        padding: 5px 10px;
-        flex: 0 0 calc((100% - 8px) / 2); /* 2 tags per row on mobile */
+        font-size: 10px;
+        padding: 5px 5px;
+        flex: 0 0 calc(33.333% - 4px);
+        max-width: calc(33.333% - 4px);
+        display: inline-block;
+        white-space: nowrap;
+    }
+    
+    .teacher-tag-singleline {
+        -webkit-line-clamp: 1;
+        white-space: nowrap;
+    }
+    
+    .teacher-tag-multiline {
+        -webkit-line-clamp: 2;
+    }
+    
+    .teacher-reference-books {
+        gap: 6px;
+        margin-top: 6px;
+    }
+    
+    .teacher-reference-book-tag {
+        font-size: 9px;
+        padding: 1.5px 5px;
+        flex: 0 0 calc(33.333% - 4px);
+        max-width: calc(33.333% - 4px);
+        display: inline-block;
+        line-height: 1.2;
+    }
+    
+    .teacher-reference-book-tag-singleline {
+        -webkit-line-clamp: 1;
+        white-space: nowrap;
+    }
+    
+    .teacher-reference-book-tag-multiline {
+        -webkit-line-clamp: 2;
     }
     
     .teacher-tags {
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        margin-top: 10px;
     }
     
     .books-title-bg {
         font-size: 28px;
-        margin-bottom: 20px;
     }
     
     .books-grid {
@@ -1410,53 +1301,17 @@
     }
     
     .book-card {
-        max-width: 75%;
+        max-width: 100%;
     }
     
     .book-image-wrapper {
-        max-width: 90%;
+        max-width: 100%;
     }
     
     .book-image {
-        max-width: 90%;
+        max-width: 100%;
     }
     
-    .books-swiper .swiper-slide-active {
-        transform: scale(1);
-    }
-    
-    /* View Details Button (SP only) */
-    .section-view-details-button {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        padding: 0 20px;
-    }
-    
-    .view-details-btn {
-        background: #1bb8ce;
-        color: #ffffff;
-        border: none;
-        border-radius: 30px;
-        padding: 14px 40px;
-        font-size: 16px;
-        font-weight: 400;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-        display: inline-block;
-        text-decoration: none;
-        text-align: center;
-    }
-    
-    .view-details-btn:hover {
-        background: #2A9FE0;
-        transform: translateY(-2px);
-    }
-    
-    .view-details-btn:active {
-        transform: translateY(0);
-    }
     
     /* News Section responsive styles are in common.css */
 }

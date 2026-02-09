@@ -266,33 +266,63 @@
 .video-viewer-steps {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.step-arrow {
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-arrow svg {
+    width: 32px;
+    height: 32px;
 }
 
 .video-viewer-step {
     position: relative;
     background: #ffffff;
-    border: none;
-    border-radius: 100px;
+    border: 1px solid transparent;
+    border-radius: 20px;
     padding: 24px 30px;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
     min-height: 100px;
     display: flex;
     align-items: center;
+    background-clip: padding-box;
+}
+
+.video-viewer-step::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1bb8ce, #2A9FE0, #1bb8ce);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .step-number {
     position: absolute;
-    top: -15px;
-    left: -20px;
-    font-size: 48px;
-    font-weight: 400;
+    top: -25px;
+    left: -25px;
+    font-size: 56px;
+    font-weight: 700;
     color: #1bb8ce;
     line-height: 1;
-    font-family: "Notable", sans-serif;
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", sans-serif;
     padding: 0 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .step-content {
@@ -308,6 +338,28 @@
     padding: 0 40px;
     text-align: center;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.step-content p a {
+    color: #1bb8ce;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.step-content p a:hover {
+    color: #2A9FE0;
+}
+
+.step-example-image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.step-barcode-example {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Book ID and Password Section */
@@ -344,7 +396,6 @@
 
 .video-viewer-login-button-wrapper {
     text-align: center;
-    margin-top: 40px;
 }
 
 .video-viewer-login-button {
@@ -388,9 +439,11 @@
     }
     
     .step-number {
-        font-size: 40px;
-        top: -12px;
-        left: 18px;
+        font-size: 48px;
+        top: -20px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
     }
     
     .video-viewer-step {
@@ -461,7 +514,16 @@
     }
     
     .video-viewer-steps {
-        gap: 35px;
+        gap: 25px;
+    }
+    
+    .step-arrow {
+        margin: 8px 0;
+    }
+    
+    .step-arrow svg {
+        width: 28px;
+        height: 28px;
     }
     
     .video-viewer-step {
@@ -469,14 +531,20 @@
     }
     
     .step-number {
-        font-size: 36px;
-        top: -10px;
-        left: 15px;
+        font-size: 42px;
+        top: -18px;
+        left: 12px;
+        width: 45px;
+        height: 45px;
     }
     
     .step-content p {
         font-size: 14px;
         padding: 0 30px;
+    }
+    
+    .step-example-image {
+        margin-top: 15px;
     }
     
     .video-viewer-id-section {
@@ -538,7 +606,16 @@
     }
     
     .video-viewer-steps {
-        gap: 30px;
+        gap: 20px;
+    }
+    
+    .step-arrow {
+        margin: 6px 0;
+    }
+    
+    .step-arrow svg {
+        width: 24px;
+        height: 24px;
     }
     
     .video-viewer-step {
@@ -546,14 +623,20 @@
     }
     
     .step-number {
-        font-size: 32px;
-        top: -8px;
-        left: 12px;
+        font-size: 38px;
+        top: -15px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
     }
     
     .step-content p {
         font-size: 13px;
         padding: 0 20px;
+    }
+    
+    .step-example-image {
+        margin-top: 12px;
     }
     
     .video-viewer-id-section {
