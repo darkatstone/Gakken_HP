@@ -188,26 +188,59 @@
 }
 
 .hero-image-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     flex: 1;
+    align-self: flex-end;
+    height: 100%;
 }
 
-.hero-right-image-img {
-    max-width: 100%;
+/* Hero SVGs (same layout behavior as u-exam, but with HS-exam-specific SVG assets in HTML) */
+.hero-svg-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
     height: auto;
-    width: 450px;
-    object-fit: contain;
-    animation: pulseScaleLarge 5s ease-in-out infinite;
 }
 
-@keyframes pulseScaleLarge {
-    0%, 100% {
-        transform: scale(1);
+.hero-svg-image {
+    position: absolute;
+    width: auto;
+    height: 340px;
+    max-width: 255px;
+    object-fit: contain;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    bottom: 0;
+}
+
+.hero-svg-1 {
+    right: 0;
+    animation-delay: 0.1s;
+}
+
+.hero-svg-2 {
+    right: 212px;
+    animation-delay: 0.3s;
+}
+
+.hero-svg-3 {
+    right: 424px;
+    animation-delay: 0.5s;
+}
+
+.hero-svg-4 {
+    right: 636px;
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    50% {
-        transform: scale(1.08);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -405,7 +438,7 @@
     text-align: center;
     font-size: 32px;
     font-weight: 700;
-    color: #1bb8ce;
+    color: #cdff42;
     letter-spacing: 0.1em;
     padding: 80px 20px;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
@@ -493,7 +526,8 @@
     width: 170px;
     height: 170px;
     aspect-ratio: 1 / 1;
-    border-radius: 0;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
     background: transparent;
     padding: 0;
     margin-bottom: 12px;
@@ -504,8 +538,8 @@
 .teacher-image {
     width: 100%;
     height: 100%;
-    border-radius: 0;
-    object-fit: cover;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 .teacher-subject {
@@ -586,6 +620,11 @@
     max-width: calc(33.333% - 6px);
     white-space: nowrap;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.teacher-tag-wide {
+    flex: 0 0 calc(50% - 6px);
+    max-width: calc(50% - 6px);
 }
 
 .teacher-tag-singleline {
@@ -954,7 +993,8 @@
     }
     
     .logo-image {
-        max-height: 60px;
+        height: 60px;
+        max-width: 240px;
     }
     
     /* Mobile menu toggle styles are in common.css */
@@ -986,10 +1026,16 @@
         font-size: 16px;
         letter-spacing: 0.02em;
     }
-    
-    .hero-right-image-img {
-        width: 300px;
+
+    .hero-svg-image {
+        height: 200px;
+        max-width: 150px;
     }
+
+    .hero-svg-1 { right: 0; }
+    .hero-svg-2 { right: 125px; }
+    .hero-svg-3 { right: 250px; }
+    .hero-svg-4 { right: 375px; }
     
     .teachers-section {
         padding: 0 30px 60px;
@@ -1036,23 +1082,26 @@
     }
     
     .hero-text-left {
-        align-items: flex-start;
+        align-items: center;
+        margin-bottom: 30%;
     }
     
     .hero-title-left {
-        text-align: left;
-        width: auto;
+        text-align: center;
+        width: 100%;
     }
     
     .hero-title-main {
         font-size: 46px;
         letter-spacing: 0.1em;
+        text-align: center;
     }
     
     .hero-subtitle {
         font-size: 15px;
         letter-spacing: 0.015em;
         margin: 15px 0 0 0;
+        text-align: center;
     }
     
     .scroll-arrow {
@@ -1060,15 +1109,37 @@
     }
     
     .hero-image-right {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        width: 100%;
+        display: none;
     }
 
-    .hero-right-image-img {
-        width: 250px;
-        max-width: 80%;
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: auto;
+    }
+
+    .hero-svg-image {
+        position: relative;
+        height: 180px;
+        max-width: 135px;
+        margin-left: -20px;
+    }
+
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+
+    .hero-svg-1,
+    .hero-svg-2,
+    .hero-svg-3,
+    .hero-svg-4 {
+        right: auto;
     }
     
     .teachers-intro-section {
@@ -1142,7 +1213,8 @@
     }
     
     .logo-image {
-        max-height: 40px;
+        height: 40px;
+        max-width: 160px;
     }
     
     .hero-text-container {
@@ -1167,7 +1239,45 @@
     }
 
     .hero-image-right {
-        margin-top: 10px;
+        display: none;
+    }
+
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 2px;
+        box-sizing: border-box;
+        gap: 0;
+        transform: none;
+    }
+
+    .hero-svg-image {
+        position: relative;
+        height: 140px;
+        width: auto;
+        max-width: calc(25% - 2px);
+        min-width: 0;
+        flex: 1 1 calc(25% - 2px);
+        margin-left: 0;
+        object-fit: contain;
+        display: block;
+    }
+
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+
+    .hero-svg-1,
+    .hero-svg-2,
+    .hero-svg-3,
+    .hero-svg-4 {
+        right: auto;
     }
     
     /* Show br tag on mobile */
@@ -1282,6 +1392,11 @@
         max-width: calc(33.333% - 4px);
         display: inline-block;
         white-space: nowrap;
+    }
+    
+    .teacher-tag-wide {
+        flex: 0 0 calc(50% - 4px);
+        max-width: calc(50% - 4px);
     }
     
     .teacher-tag-singleline {

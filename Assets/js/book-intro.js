@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 <p class="book-detail-meta"><strong>本体価格:</strong> ${bookData.price || '価格'}</p>
                                 <p class="book-detail-meta"><strong>発売日:</strong> ${bookData.releaseDate || '発売日'}</p>
                                 <p class="book-detail-meta"><strong>ISBN:</strong> ${bookData.isbn || 'ISBN'}</p>
+                                <div class="book-detail-purchase-button-wrapper">
+                                    <a href="${bookData.purchaseUrl || '#'}" class="book-detail-purchase-button" ${bookData.purchaseUrl ? 'target="_blank" rel="noopener noreferrer"' : 'onclick="return false;"'}>購入はこちら</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                         <div class="book-detail-section-block">
                             <h3 class="book-detail-section-title">PROFILE</h3>
                             <div class="book-detail-instructor-profile">
-                                <div class="book-detail-instructor-image-wrapper">
+                                <div class="book-detail-instructor-image-wrapper" data-teacher-id="${bookData.authorId || ''}" style="cursor: ${bookData.authorId ? 'pointer' : 'default'};">
                                     <img src="${author?.image || bookData.authorImage || bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師" class="book-detail-instructor-image">
                                 </div>
                                 <div class="book-detail-instructor-description">
@@ -173,6 +176,36 @@ document.addEventListener('DOMContentLoaded', async function() {
                         }
                     });
                 }
+            }
+            
+            // Add click event listener to instructor image wrapper
+            const instructorImageWrapper = bookDetailContainer.querySelector('.book-detail-instructor-image-wrapper[data-teacher-id]');
+            if (instructorImageWrapper && bookData.authorId) {
+                instructorImageWrapper.addEventListener('click', function() {
+                    const teacherId = this.getAttribute('data-teacher-id');
+                    const teacher = getTeacherById(teacherId);
+                    
+                    if (teacher) {
+                        // Prepare teacher data for teacher-intro page
+                        const teacherData = {
+                            id: teacher.id,
+                            nameJp: teacher.nameJp,
+                            nameEn: teacher.nameEn,
+                            nameJpHiragana: teacher.nameJpHiragana,
+                            image: teacher.image,
+                            description: teacher.description,
+                            tags: teacher.tags || [],
+                            referenceBooks: teacher.referenceBooks || [],
+                            videoUrl: teacher.videoUrl || '',
+                            socialLinks: teacher.socialLinks || {},
+                            books: teacher.books || []
+                        };
+                        
+                        // Save to sessionStorage and navigate
+                        sessionStorage.setItem('teacherData', JSON.stringify(teacherData));
+                        window.location.href = 'teacher-intro.html';
+                    }
+                });
             }
         }
         

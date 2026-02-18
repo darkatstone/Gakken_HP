@@ -172,7 +172,7 @@
     max-width: 1400px;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     padding: 0 60px;
     margin: 0 auto;
     height: 100%;
@@ -185,13 +185,63 @@
     justify-content: center;
     gap: 0;
     flex: 1;
+    align-self: center;
 }
 
 .hero-image-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     flex: 1;
+    align-self: flex-end;
+    height: 100%;
+}
+
+.hero-svg-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+}
+
+.hero-svg-image {
+    position: absolute;
+    width: auto;
+    height: 340px;
+    max-width: 255px;
+    object-fit: contain;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    bottom: 0;
+}
+
+.hero-svg-1 {
+    right: 0;
+    animation-delay: 0.1s;
+}
+
+.hero-svg-2 {
+    right: 212px;
+    animation-delay: 0.3s;
+}
+
+.hero-svg-3 {
+    right: 424px;
+    animation-delay: 0.5s;
+}
+
+.hero-svg-4 {
+    right: 636px;
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-right-image-img {
@@ -232,7 +282,7 @@
 .hero-title-main {
     display: inline-block;
     color: #ffffff;
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.15em;
@@ -248,7 +298,7 @@
 
 .hero-subtitle {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.02em;
@@ -464,7 +514,8 @@
     width: 170px;
     height: 170px;
     aspect-ratio: 1 / 1;
-    border-radius: 0;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
     background: transparent;
     padding: 0;
     margin-bottom: 12px;
@@ -475,8 +526,8 @@
 .teacher-image {
     width: 100%;
     height: 100%;
-    border-radius: 0;
-    object-fit: cover;
+    border-radius: 50%;
+    object-fit: contain;
 }
 
 .teacher-subject {
@@ -559,6 +610,11 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.teacher-tag-wide {
+    flex: 0 0 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+}
+
 .teacher-tag-singleline {
     -webkit-line-clamp: 1;
     white-space: nowrap;
@@ -584,14 +640,14 @@
     color: #666666;
     font-size: 9px;
     font-weight: 400;
-    padding: 1.5px 5px;
+    padding: 2px 8px;
     border-radius: 20px;
     border: 1px solid #d0d0d0;
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    flex: 0 0 calc(33.333% - 6px);
-    max-width: calc(33.333% - 6px);
+    flex: 0 0 calc(40% - 8px);
+    max-width: calc(40% - 8px);
     line-height: 1.2;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -920,7 +976,8 @@
     }
     
     .logo-image {
-        max-height: 60px;
+        height: 60px;
+        max-width: 240px;
     }
     
     /* Mobile menu toggle styles are in common.css */
@@ -944,13 +1001,38 @@
     }
     
     .hero-title-main {
-        font-size: 60px;
+        font-size: 52px;
         letter-spacing: 0.12em;
     }
     
     .hero-subtitle {
-        font-size: 16px;
+        font-size: 14px;
         letter-spacing: 0.02em;
+    }
+    
+    .hero-svg-container {
+        right: 0;
+    }
+    
+    .hero-svg-image {
+        height: 200px;
+        max-width: 150px;
+    }
+    
+    .hero-svg-1 {
+        right: 0;
+    }
+    
+    .hero-svg-2 {
+        right: 125px;
+    }
+    
+    .hero-svg-3 {
+        right: 250px;
+    }
+    
+    .hero-svg-4 {
+        right: 375px;
     }
     
     .hero-right-image-img {
@@ -1002,21 +1084,27 @@
     }
     
     .hero-text-left {
-        align-items: flex-start;
+        align-items: center;
+        margin-bottom: 30%;
     }
     
     .hero-title-left {
-        text-align: left;
-        width: auto;
+        text-align: center;
+        width: 100%;
     }
     
     .hero-title-main {
-        font-size: 46px;
+        font-size: 40px;
         letter-spacing: 0.1em;
+        text-align: center;
     }
     
     .hero-subtitle {
-        font-size: 15px;
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        font-size: 13px;
         letter-spacing: 0.015em;
         margin: 15px 0 0 0;
     }
@@ -1026,10 +1114,46 @@
     }
     
     .hero-image-right {
+        display: none;
+    }
+
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
         display: flex;
+        align-items: flex-end;
         justify-content: center;
-        margin-top: 30px;
-        width: 100%;
+        width: auto;
+    }
+    
+    .hero-svg-image {
+        position: relative;
+        height: 180px;
+        max-width: 135px;
+        margin-left: -20px;
+    }
+    
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+    
+    .hero-svg-1 {
+        right: auto;
+    }
+    
+    .hero-svg-2 {
+        right: auto;
+    }
+    
+    .hero-svg-3 {
+        right: auto;
+    }
+    
+    .hero-svg-4 {
+        right: auto;
     }
 
     .hero-right-image-img {
@@ -1056,7 +1180,9 @@
     .books-intro-text {
         font-size: 14px;
     }
-    
+    .hero-image-right {
+        display: none;
+    }
     .teachers-section {
         padding: 0 30px 50px;
     }
@@ -1108,7 +1234,8 @@
     }
     
     .logo-image {
-        max-height: 40px;
+        height: 40px;
+        max-width: 160px;
     }
     
     .hero-text-container {
@@ -1126,14 +1253,58 @@
     }
     
     .hero-title-main {
-        font-size: 36px;
+        font-size: 32px;
         letter-spacing: 0.08em;
         text-align: center;
         line-height: 1.4;
     }
 
-    .hero-image-right {
-        margin-top: 10px;
+    
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 2px;
+        box-sizing: border-box;
+        gap: 0;
+        transform: none;
+    }
+    
+    .hero-svg-image {
+        position: relative;
+        height: 140px;
+        width: auto;
+        max-width: calc(25% - 2px);
+        min-width: 0;
+        flex: 1 1 calc(25% - 2px);
+        margin-left: 0;
+        object-fit: contain;
+        display: block;
+    }
+    
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+    
+    .hero-svg-1 {
+        right: auto;
+    }
+    
+    .hero-svg-2 {
+        right: auto;
+    }
+    
+    .hero-svg-3 {
+        right: auto;
+    }
+    
+    .hero-svg-4 {
+        right: auto;
     }
     
     /* Show br tag on mobile */
@@ -1142,7 +1313,7 @@
     }
     
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 12px;
         letter-spacing: 0.015em;
         margin: 15px 0 0 0;
         text-align: center;

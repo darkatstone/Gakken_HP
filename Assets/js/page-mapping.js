@@ -16,10 +16,10 @@ window.pageMapping = {
   },
   "english": {
     "teachers": ["teacher-008", "teacher-009", "teacher-010", "teacher-011", "teacher-012"],
-    "books": ["book-019", "book-020", "book-021", "book-022", "book-023"]
+    "books": ["book-019", "book-020", "book-021", "book-022", "book-023", "book-033", "book-032"]
   },
   "toeic": {
-    "teachers": ["teacher-017", "teacher-018", "teacher-019"],
+    "teachers": ["teacher-020", "teacher-017", "teacher-018", "teacher-019"],
     "books": ["book-028", "book-029", "book-030", "book-031"]
   }
 };

@@ -28,10 +28,10 @@ window.teachersData = {
         "image": "Assets/img/teachers/inst02_ph.png",
         "description": "リクルート「スタディサプリ」古典講師。大阪教育大学教養学科芸術専攻ピアノ科卒業。自身が受験時代に苦手だった古文を克服し、一番の得意源に変えられたからこそ伝えられる「わかりやすい解説」で全国の受験生から支持されている。著書に「岡本梨奈の1冊読むだけで古文の読み方＆解き方が面白いほど身につく本」「古文ポラリス1・2・3」（以上、KADOKAWA）、「高校の古文読解が1冊でしっかりわかる本」（かんき出版）などがある。",
         "tags": [
-          "漢文の法"
+          "漢文句法"
         ],
         "referenceBooks": [
-          "漢文法 問題集"
+          "良問特訓漢文句法"
         ],
         "videoUrl": "https://www.youtube.com/embed/O8wrAWEU_5k",
         "socialLinks": {
@@ -143,7 +143,7 @@ window.teachersData = {
         "twitter": "https://x.com/yumamoriya",
         "instagram": ""
       },
-      "books": ["book-019"]
+      "books": ["book-019", "book-032", "book-033"]
     },
     {
       "id": "teacher-009",
@@ -169,7 +169,7 @@ window.teachersData = {
       "nameJpHiragana": "すぎもと あやの",
       "image": "Assets/img/teachers/inst10_ph.png",
       "description": "2002年より河合塾にて教壇に立つ。河合塾での対面授業を中心に、マナビス（映像授業）、全国模試や教材の作成、佐賀県教育委員会からの依頼による映像講義などを行っている。中学生から浪人生まで幅広い学年、難易度を担当。また、保護者向け講演会も人気で、これまで福岡、広島、東京にて開催している。夏期講習や冬期講習では優先申し込みの時点で定員満了になることも多く、毎年開催している冠イベント『杉本の英文法講法』では、有料にも関わらず高3生100名以上を集める。",
-      "tags": ["英検準2級プラス"],
+      "tags": ["英検<br>準2級プラス"],
       "referenceBooks": [],
       "videoUrl": "https://www.youtube.com/embed/P0xSbCqdPAM",
       "socialLinks": {
@@ -254,7 +254,7 @@ window.teachersData = {
       "nameJpHiragana": "すずき たけし",
       "image": "Assets/img/teachers/inst15_ph.png",
       "description": "英国立バース大学大学院修了。トフルゼミナール、および厚胤塾（こうしんじゅく）講師。通訳者・翻訳者。2002年FIFAワールドカップ・2005年愛知万博などの国際イベントで通訳を務め、米国上院議員、ハーバード大博士、アポロ17号宇宙飛行士などの著名人の通訳も経験。また『NHK WORLD』などのテレビ番組での映像翻訳や『世界を変えた感動の名スピーチ』（KADOKAWA）等の出版翻訳など、幅広いメディアで翻訳に従事する。主な著書に『ここで差がつく英文ライティングの技術―英語は「I」ではじめるな』（ティエス企画）、『大学入試 基本の「型」がしっかり身につく 自由英作文の合格教室』、『アメリカ人教授に学ぶ英文ライティングのメタモルフォーゼ』（ともにKADOKAWA）などがある。",
-      "tags": ["自由英作文"],
+      "tags": ["自由英作文", "和文英訳"],
       "referenceBooks": [],
       "videoUrl": "https://www.youtube.com/embed/FUgYyRmpqk0",
       "socialLinks": {
@@ -314,6 +314,23 @@ window.teachersData = {
         "instagram": ""
       },
       "books": ["book-019"]
+    },
+    {
+      "id": "teacher-020",
+      "nameJp": "Jun",
+      "nameEn": "Jun",
+      "nameJpHiragana": "じゅん",
+      "image": "Assets/img/teachers/inst16_ph.png",
+      "description": "現役ITエンジニアとして活躍し、年に数回IT 企業／ ITエンジニア向けの英語研修も実施。オンライン英語スクール「ManyMiles Ahead」運営、Udemy ではIT 業界の英語やTOEIC®関連のコースを提供。YouTubeチャンネル「ヴィダロカTV」やnoteメンバーシップ「Miles Ahead」で情報発信中。TOEIC®990点満点38回、英検1級合格21回、英語発音指導士®。スペイン語、韓国語、中国語も勉強中。著書に『TOEIC® L&R TEST 超速スコアアップ特急Part2&5を狙え』(朝日新聞出版) 、監修書に『TOEIC® L&R TEST Part 3&4の鬼退治』（Gakken）がある。",
+      "tags": ["TOEIC入門編"],
+      "referenceBooks": [],
+      "videoUrl": "https://www.youtube.com/embed/vVNsb1CED3o?si=m4Bfq_tO5IdbNLbq",
+      "socialLinks": {
+        "youtube": "",
+        "twitter": "https://x.com/Jun_suerte",
+        "instagram": ""
+      },
+      "books": ["book-028"]
     }
   ]
 };

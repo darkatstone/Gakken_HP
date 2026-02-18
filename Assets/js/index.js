@@ -659,6 +659,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Animate hero illustrations with random delay
+    function animateHeroIllustrations() {
+        const illustrations = document.querySelectorAll('.hero-illustration');
+        
+        if (illustrations.length === 0) return;
+        
+        // Create array of indices and shuffle them
+        const indices = Array.from({ length: illustrations.length }, (_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        
+        // Apply random delay to each illustration
+        indices.forEach((originalIndex, shuffledIndex) => {
+            const illustration = illustrations[originalIndex];
+            // Random delay between 0 and 1.5 seconds, with slight stagger
+            const baseDelay = shuffledIndex * 0.1; // Stagger by 0.1s
+            const randomDelay = Math.random() * 0.5; // Additional random 0-0.5s
+            const totalDelay = baseDelay + randomDelay;
+            
+            setTimeout(() => {
+                illustration.classList.add('visible');
+            }, totalDelay * 1000);
+        });
+    }
+    
     // Create dots for hero section
     function createHeroDots() {
         const heroSection = document.querySelector('.hero-section') || 
@@ -697,7 +724,13 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         createHeroDots();
         createAboutDots();
+        animateHeroIllustrations();
     });
+    
+    // Also animate illustrations on DOMContentLoaded if images are already loaded
+    if (document.readyState === 'complete') {
+        animateHeroIllustrations();
+    }
     
     window.addEventListener('resize', function() {
         createHeroDots();

@@ -22,10 +22,23 @@ document.addEventListener('DOMContentLoaded', async function() {
             // Get reference books from teacher data
             const referenceBooks = teacherData.referenceBooks || [];
             const referenceBooksHTML = referenceBooks.map(book => {
-                // テキストを2行に分割（中央で分割）
-                const midPoint = Math.ceil(book.length / 2);
-                const firstLine = book.substring(0, midPoint);
-                const secondLine = book.substring(midPoint);
+                let firstLine = '';
+                let secondLine = '';
+
+                // ベーシック / スタンダード 系は単語ごとに改行
+                if (book.startsWith('ベーシック')) {
+                    firstLine = 'ベーシック';
+                    secondLine = book.substring('ベーシック'.length);
+                } else if (book.startsWith('スタンダード')) {
+                    firstLine = 'スタンダード';
+                    secondLine = book.substring('スタンダード'.length);
+                } else {
+                    // それ以外は従来どおり中央で分割
+                    const midPoint = Math.ceil(book.length / 2);
+                    firstLine = book.substring(0, midPoint);
+                    secondLine = book.substring(midPoint);
+                }
+
                 return `<span class="teacher-detail-reference-book-tag">${firstLine}<br>${secondLine}</span>`;
             }).join('');
             
@@ -49,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                             <p class="teacher-detail-book-release">発売日: ${book.releaseDate}</p>
                             <p class="teacher-detail-book-isbn">ISBN: ${book.isbn}</p>
                             <div class="teacher-detail-book-bottom">
-                                <a href="video-viewer.html" class="teacher-detail-book-button">購入はこちら</a>
+                                <a href="#" class="teacher-detail-book-button" data-book-id="${book.id}">購入はこちら</a>
                             </div>
                         </div>
                     </div>
@@ -58,6 +71,24 @@ document.addEventListener('DOMContentLoaded', async function() {
             
             teacherDetailContainer.innerHTML = `
                 <div class="teacher-detail-layout">
+                    <div class="teacher-detail-left">
+                        <div class="teacher-detail-profile">
+                            <div class="teacher-detail-image-wrapper">
+                                <img src="${teacherData.image || teacherData.imageSrc || 'Assets/img/teacher1.png'}" alt="${teacherData.nameJp}" class="teacher-detail-image">
+                            </div>
+                            <h2 class="teacher-detail-name-jp">${teacherData.nameJp}</h2>
+                            <p class="teacher-detail-name-en">${teacherData.nameEn}</p>
+                            <div class="teacher-detail-social">
+                                ${youtubeLink}
+                                ${twitterLink}
+                                ${instagramLink}
+                            </div>
+                            <div class="teacher-detail-tags">
+                                ${tagsHTML}
+                            </div>
+                            ${referenceBooksHTML ? `<div class="teacher-detail-reference-books">${referenceBooksHTML}</div>` : ''}
+                        </div>
+                    </div>
                     <div class="teacher-detail-right">
                         <div class="teacher-detail-intro">
                             <h3 class="teacher-detail-intro-title">PROFILE</h3>
@@ -84,29 +115,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         </div>
                         <div class="teacher-detail-books">
                             <h3 class="teacher-detail-books-title">LINEUP</h3>
-                            <div class="teacher-detail-books-wrapper">
-                                <div class="teacher-detail-left">
-                                    <div class="teacher-detail-profile">
-                                        <div class="teacher-detail-image-wrapper">
-                                            <img src="${teacherData.image || teacherData.imageSrc || 'Assets/img/teacher1.png'}" alt="${teacherData.nameJp}" class="teacher-detail-image">
-                                        </div>
-                                        <h2 class="teacher-detail-name-jp">${teacherData.nameJp}</h2>
-                                        <p class="teacher-detail-name-en">${teacherData.nameEn}</p>
-                                        <div class="teacher-detail-social">
-                                            ${youtubeLink}
-                                            ${twitterLink}
-                                            ${instagramLink}
-                                        </div>
-                                        <div class="teacher-detail-tags">
-                                            ${tagsHTML}
-                                        </div>
-                                        ${referenceBooksHTML ? `<div class="teacher-detail-reference-books">${referenceBooksHTML}</div>` : ''}
-                                    </div>
-                                </div>
-                                <div class="teacher-detail-books-content">
-                                    <div class="teacher-detail-books-grid">
-                                        ${booksHTML || '<p>書籍情報がありません</p>'}
-                                    </div>
+                            <div class="teacher-detail-books-content">
+                                <div class="teacher-detail-books-grid">
+                                    ${booksHTML || '<p>書籍情報がありません</p>'}
                                 </div>
                             </div>
                         </div>
@@ -215,6 +226,40 @@ document.addEventListener('DOMContentLoaded', async function() {
                     });
                 }
             }
+            
+            // Add click event listeners to book buttons
+            const bookButtons = teacherDetailContainer.querySelectorAll('.teacher-detail-book-button[data-book-id]');
+            bookButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const bookId = this.getAttribute('data-book-id');
+                    const book = getBookById(bookId);
+                    
+                    if (book) {
+                        // Prepare book data for book-intro page
+                        const bookData = {
+                            id: book.id,
+                            title: book.title,
+                            author: book.author,
+                            authorId: book.authorId,
+                            price: book.price,
+                            releaseDate: book.releaseDate,
+                            isbn: book.isbn,
+                            coverImage: book.coverImage,
+                            previewImages: book.previewImages || [],
+                            previewImage: book.previewImage || (book.previewImages && book.previewImages[0]) || '',
+                            description: book.description,
+                            instructorImage: book.instructorImage || '',
+                            instructorDescription: book.instructorDescription || '',
+                            videoUrl: book.videoUrl || ''
+                        };
+                        
+                        // Save to sessionStorage and navigate
+                        sessionStorage.setItem('bookData', JSON.stringify(bookData));
+                        window.location.href = 'book-intro.html';
+                    }
+                });
+            });
         }
         
         // Keep sessionStorage data for page reload

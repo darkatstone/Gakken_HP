@@ -7,13 +7,43 @@ async function loadPageContent(pageName) {
     
     // Get teachers and books for this page
     const teachers = getTeachersForPage(pageName);
-    const books = getBooksForPage(pageName);
+    let books = getBooksForPage(pageName);
+    
+    // Sort books by release date (newest first)
+    if (Array.isArray(books)) {
+        const parseJapaneseDate = (value) => {
+            if (!value || typeof value !== 'string') return 0;
+            const match = value.match(/(\d+)年\s*(\d+)月\s*(\d+)日/);
+            if (!match) return 0;
+            const year = Number(match[1]);
+            const month = Number(match[2]) - 1; // JS months are 0-based
+            const day = Number(match[3]);
+            return new Date(year, month, day).getTime();
+        };
+        
+        books = [...books].sort((a, b) => {
+            const aTime = parseJapaneseDate(a.releaseDate);
+            const bTime = parseJapaneseDate(b.releaseDate);
+            return aTime - bTime; // ascending: oldest first (newest at bottom)
+        });
+    }
     
     // Generate teachers HTML
     const teachersContainer = document.querySelector('.teachers-container .teachers-grid');
     if (teachersContainer) {
         if (teachers.length > 0 && teachers[0] && teachers[0].id) {
             teachersContainer.innerHTML = teachers.map(teacher => generateTeacherHTML(teacher)).join('');
+
+            // Layout tweak: for english page with exactly 5 teachers,
+            // show 3 cards in the first row and 2 in the second row, centered.
+            if (pageName === 'english') {
+                const teacherCards = teachersContainer.querySelectorAll('.teacher-grid-item');
+                if (teacherCards.length === 5) {
+                    teachersContainer.classList.add('teachers-grid-five');
+                } else {
+                    teachersContainer.classList.remove('teachers-grid-five');
+                }
+            }
         } else {
             // If no teachers data, show coming soon message
             teachersContainer.innerHTML = '<div class="coming-soon-message">COMING SOON</div>';
@@ -25,6 +55,17 @@ async function loadPageContent(pageName) {
     if (booksContainer) {
         if (books.length > 0 && books[0] && books[0].id) {
             booksContainer.innerHTML = books.map(book => generateBookHTML(book)).join('');
+
+            // Layout tweak: for english page with exactly 5 books,
+            // show 3 cards in the first row and 2 in the second row, centered.
+            if (pageName === 'english') {
+                const bookCards = booksContainer.querySelectorAll('.book-grid-item');
+                if (bookCards.length === 5) {
+                    booksContainer.classList.add('books-grid-five');
+                } else {
+                    booksContainer.classList.remove('books-grid-five');
+                }
+            }
         } else {
             // If no books data, show coming soon message
             booksContainer.innerHTML = '<div class="coming-soon-message">COMING SOON</div>';
@@ -38,17 +79,32 @@ async function loadPageContent(pageName) {
 }
 
 function generateTeacherHTML(teacher) {
-    // 科目タグ（常に1行表示）
+    // 科目タグ（通常1行、長いものは幅を少し広く）
     const subjectTagsHTML = (teacher.tags || []).map(tag => {
-        return `<span class="teacher-tag teacher-tag-singleline">${tag}</span>`;
+        const isWide = tag.includes('<br>') || tag.length > 6;
+        const extraClass = isWide ? ' teacher-tag-wide' : '';
+        return `<span class="teacher-tag teacher-tag-singleline${extraClass}">${tag}</span>`;
     }).join('');
     
     // 参考書タグ（2行表示）
     const referenceBooksHTML = (teacher.referenceBooks || []).map(book => {
-        // テキストを2行に分割（中央で分割）
-        const midPoint = Math.ceil(book.length / 2);
-        const firstLine = book.substring(0, midPoint);
-        const secondLine = book.substring(midPoint);
+        let firstLine = '';
+        let secondLine = '';
+
+        // ベーシック / スタンダード 系は単語ごとに改行
+        if (book.startsWith('ベーシック')) {
+            firstLine = 'ベーシック';
+            secondLine = book.substring('ベーシック'.length);
+        } else if (book.startsWith('スタンダード')) {
+            firstLine = 'スタンダード';
+            secondLine = book.substring('スタンダード'.length);
+        } else {
+            // それ以外は従来どおり中央で分割
+            const midPoint = Math.ceil(book.length / 2);
+            firstLine = book.substring(0, midPoint);
+            secondLine = book.substring(midPoint);
+        }
+
         return `<span class="teacher-reference-book-tag teacher-reference-book-tag-singleline">${firstLine}<br>${secondLine}</span>`;
     }).join('');
     

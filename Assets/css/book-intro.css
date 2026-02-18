@@ -145,6 +145,36 @@
     font-weight: 700;
 }
 
+.book-detail-purchase-button-wrapper {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.book-detail-purchase-button {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(27, 184, 206, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #1bb8ce;
+    text-decoration: none;
+    border: 1px solid rgba(27, 184, 206, 0.3);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(27, 184, 206, 0.1);
+}
+
+.book-detail-purchase-button:hover {
+    background: rgba(27, 184, 206, 0.3);
+    border-color: rgba(27, 184, 206, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(27, 184, 206, 0.2);
+}
+
 .book-detail-right {
     flex: 1;
     display: flex;
@@ -249,6 +279,15 @@
 .book-detail-instructor-image-wrapper {
     flex: 0 0 180px;
     position: relative;
+    transition: transform 0.3s ease;
+}
+
+.book-detail-instructor-image-wrapper[data-teacher-id]:hover {
+    transform: scale(1.05);
+}
+
+.book-detail-instructor-image-wrapper[data-teacher-id]:hover .book-detail-instructor-image {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .book-detail-instructor-image {
@@ -256,6 +295,7 @@
     height: auto;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .book-detail-play-button-small {
@@ -430,5 +470,10 @@
     
     .book-description-text {
         text-align: center;
+    }
+    
+    .book-detail-purchase-button {
+        padding: 8px 20px;
+        font-size: 12px;
     }
 }

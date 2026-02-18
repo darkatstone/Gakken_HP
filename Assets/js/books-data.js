@@ -20,7 +20,8 @@ window.booksData = {
       "description": "古典文法を6時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst01_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=nh8rqBbIggE&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=nh8rqBbIggE&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130557000"
     },
     {
       "id": "book-002",
@@ -39,7 +40,8 @@ window.booksData = {
       "description": "漢文句法を3時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst02_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=O8wrAWEU_5k&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=O8wrAWEU_5k&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130571000"
     },
     {
       "id": "book-003",
@@ -61,7 +63,8 @@ window.booksData = {
       "description": "英文解釈を7時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst01_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/HnzUlbuY6mo"
+      "videoUrl": "https://www.youtube.com/embed/HnzUlbuY6mo",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130581900"
     },
     {
       "id": "book-004",
@@ -83,7 +86,8 @@ window.booksData = {
       "description": "古文読解を3時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst01_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/JbvPRoJK-7I"
+      "videoUrl": "https://www.youtube.com/embed/JbvPRoJK-7I",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130589200"
     },
     {
       "id": "book-005",
@@ -105,7 +109,8 @@ window.booksData = {
       "description": "英文法を10時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst03_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=PRVcBhYrcec&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=PRVcBhYrcec&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130592600"
     },
     {
       "id": "book-006",
@@ -126,7 +131,8 @@ window.booksData = {
       "description": "現代文を4時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst04_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=3lsCEVNLOXo&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=3lsCEVNLOXo&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130584500"
     },
     {
       "id": "book-007",
@@ -147,7 +153,8 @@ window.booksData = {
       "description": "小論文を7時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst05_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=yhSLvhqVRtk&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=yhSLvhqVRtk&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130595300"
     },
     {
       "id": "book-008",
@@ -169,7 +176,8 @@ window.booksData = {
       "description": "生物基礎を6時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst13_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=GhCINgiCWcA&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=GhCINgiCWcA&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130618400"
     },
     {
       "id": "book-009",
@@ -191,7 +199,8 @@ window.booksData = {
       "description": "情報Ⅰを9時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst14_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=4owsNQfi9_c&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=4owsNQfi9_c&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130605500"
     },
     {
       "id": "book-010",
@@ -213,7 +222,8 @@ window.booksData = {
       "description": "ベーシック古文の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst01_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/nlcjQLtoL2w"
+      "videoUrl": "https://www.youtube.com/embed/nlcjQLtoL2w",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130617200"
     },
     {
       "id": "book-011",
@@ -235,7 +245,8 @@ window.booksData = {
       "description": "スタンダード古文の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst01_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/Es5hs0PJ4-k"
+      "videoUrl": "https://www.youtube.com/embed/Es5hs0PJ4-k",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130617300"
     },
     {
       "id": "book-012",
@@ -256,7 +267,8 @@ window.booksData = {
       "description": "漢文句法の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst02_ph.png",
       "instructorDescription": "",
-      "videoUrl": ""
+      "videoUrl": "",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130613300"
     },
     {
       "id": "book-013",
@@ -278,7 +290,8 @@ window.booksData = {
       "description": "ベーシック英文法の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst03_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/8rhzIDnEIJo"
+      "videoUrl": "https://www.youtube.com/embed/8rhzIDnEIJo",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130611800"
     },
     {
       "id": "book-014",
@@ -301,7 +314,8 @@ window.booksData = {
       "description": "スタンダード英文法の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst03_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/tVgWZJIwHjQ"
+      "videoUrl": "https://www.youtube.com/embed/tVgWZJIwHjQ",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130614500"
     },
     {
       "id": "book-015",
@@ -323,7 +337,8 @@ window.booksData = {
       "description": "ベーシック現代文の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst04_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/3nFUmsYbeIc"
+      "videoUrl": "https://www.youtube.com/embed/3nFUmsYbeIc",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130604600"
     },
     {
       "id": "book-016",
@@ -346,7 +361,8 @@ window.booksData = {
       "description": "スタンダード現代文の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst04_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/KHUK7e7oMas"
+      "videoUrl": "https://www.youtube.com/embed/KHUK7e7oMas",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130615300"
     },
     {
       "id": "book-017",
@@ -368,7 +384,8 @@ window.booksData = {
       "description": "自由英作文を7時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst15_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=FUgYyRmpqk0&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=FUgYyRmpqk0&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130618200"
     },
     {
       "id": "book-018",
@@ -390,7 +407,8 @@ window.booksData = {
       "description": "和文英訳を7時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst15_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/a5Ka3KUc15k"
+      "videoUrl": "https://www.youtube.com/embed/a5Ka3KUc15k",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130620100"
     },
     {
       "id": "book-019",
@@ -412,7 +430,8 @@ window.booksData = {
       "description": "英検®3級を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst08_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/T0FcHkn68Uw"
+      "videoUrl": "https://www.youtube.com/embed/T0FcHkn68Uw",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130609100"
     },
     {
       "id": "book-020",
@@ -434,7 +453,8 @@ window.booksData = {
       "description": "英検®準2級を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst09_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/mHvJY1i4I78"
+      "videoUrl": "https://www.youtube.com/embed/mHvJY1i4I78",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130609400"
     },
     {
       "id": "book-021",
@@ -456,7 +476,8 @@ window.booksData = {
       "description": "英検®準2級プラスを5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst10_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/P0xSbCqdPAM"
+      "videoUrl": "https://www.youtube.com/embed/P0xSbCqdPAM",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130609500"
     },
     {
       "id": "book-022",
@@ -478,7 +499,8 @@ window.booksData = {
       "description": "英検®2級を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst11_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/RcSs-dXC7NU"
+      "videoUrl": "https://www.youtube.com/embed/RcSs-dXC7NU",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130609300"
     },
     {
       "id": "book-023",
@@ -500,7 +522,8 @@ window.booksData = {
       "description": "英検®準1級を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst12_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/-EiLneu3o3Y"
+      "videoUrl": "https://www.youtube.com/embed/-EiLneu3o3Y",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130609200"
     },
     {
       "id": "book-024",
@@ -522,7 +545,8 @@ window.booksData = {
       "description": "日本史探究（古代~近世）を10時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst06_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=LhoqMvVT150&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=LhoqMvVT150&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130596800"
     },
     {
       "id": "book-025",
@@ -544,7 +568,8 @@ window.booksData = {
       "description": "日本史探究（近代～現代）を10時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst06_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/3lNMH3BnkmE"
+      "videoUrl": "https://www.youtube.com/embed/3lNMH3BnkmE",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130596700"
     },
     {
       "id": "book-026",
@@ -566,7 +591,8 @@ window.booksData = {
       "description": "世界史探究（古代~近世）を10時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst07_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/watch?v=d0hKxKbL3d4&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F"
+      "videoUrl": "https://www.youtube.com/watch?v=d0hKxKbL3d4&embeds_referring_euri=https%3A%2F%2Fgakken-ep.jp%2F",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130604400"
     },
     {
       "id": "book-027",
@@ -588,13 +614,14 @@ window.booksData = {
       "description": "世界史探究（近代～現代＋文化史）を10時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst07_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/cBU-Tb2aT9g"
+      "videoUrl": "https://www.youtube.com/embed/cBU-Tb2aT9g",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130604500"
     },
     {
       "id": "book-028",
       "title": "Junのたった5時間で TOEIC L&R TEST 攻略 入門編",
       "author": "Jun",
-      "authorId": "",
+      "authorId": "teacher-020",
       "price": "2,200円（税込）",
       "releaseDate": "2025年9月24日",
       "isbn": "978-4-05-306132-4",
@@ -608,9 +635,10 @@ window.booksData = {
         "Assets/img/books/previews/lineup25_sl06.jpg"
       ],
       "description": "TOEIC L&R TEST 入門編を5時間でマスターできる参考書。",
-      "instructorImage": "Assets/img/teachers/inst01_ph.png",
+      "instructorImage": "Assets/img/teachers/inst16_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/vVNsb1CED3o"
+      "videoUrl": "https://www.youtube.com/embed/vVNsb1CED3o",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130613200"
     },
     {
       "id": "book-029",
@@ -632,7 +660,8 @@ window.booksData = {
       "description": "TOEIC L&R TEST 600点を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst17_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/adF6z9-Rx1M"
+      "videoUrl": "https://www.youtube.com/embed/adF6z9-Rx1M",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130613400"
     },
     {
       "id": "book-030",
@@ -654,7 +683,8 @@ window.booksData = {
       "description": "TOEIC L&R TEST 730点を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst18_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/vzDKweS-CfE"
+      "videoUrl": "https://www.youtube.com/embed/vzDKweS-CfE",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130614200"
     },
     {
       "id": "book-031",
@@ -676,7 +706,54 @@ window.booksData = {
       "description": "TOEIC L&R TEST 900点を5時間でマスターできる参考書。",
       "instructorImage": "Assets/img/teachers/inst19_ph.png",
       "instructorDescription": "",
-      "videoUrl": "https://www.youtube.com/embed/3BWiOEaQ6Us"
+      "videoUrl": "https://www.youtube.com/embed/3BWiOEaQ6Us",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130610500"
+    },
+    {
+      "id": "book-032",
+      "title": "守屋のたった5時間で英検®4級",
+      "author": "守屋佑真",
+      "authorId": "teacher-008",
+      "price": "1,705円（税込）",
+      "releaseDate": "2025年2月19日",
+      "isbn": "978-4-05-306379-3",
+      "coverImage": "Assets/img/books/covers/lineup32_book.jpg",
+      "previewImages": [
+        "Assets/img/books/previews/lineup32_sl01.jpg",
+        "Assets/img/books/previews/lineup32_sl02.jpg",
+        "Assets/img/books/previews/lineup32_sl03.jpg",
+        "Assets/img/books/previews/lineup32_sl04.jpg",
+        "Assets/img/books/previews/lineup32_sl05.jpg",
+        "Assets/img/books/previews/lineup32_sl06.jpg"
+      ],
+      "description": "英検4級を5時間でマスターできる参考書。",
+      "instructorImage": "Assets/img/teachers/inst08_ph.png",
+      "instructorDescription": "",
+      "videoUrl": "https://www.youtube.com/embed/T0FcHkn68Uw",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130637900"
+    },
+    {
+      "id": "book-033",
+      "title": "守屋のたった5時間で英検®5級",
+      "author": "守屋佑真",
+      "authorId": "teacher-008",
+      "price": "1,650円（税込）",
+      "releaseDate": "2025年2月19日",
+      "isbn": "978-4-05-306380-9",
+      "coverImage": "Assets/img/books/covers/lineup33_book.jpg",
+      "previewImages": [
+        "Assets/img/books/previews/lineup33_sl01.jpg",
+        "Assets/img/books/previews/lineup33_sl02.jpg",
+        "Assets/img/books/previews/lineup33_sl03.jpg",
+        "Assets/img/books/previews/lineup33_sl04.jpg",
+        "Assets/img/books/previews/lineup33_sl05.jpg",
+        "Assets/img/books/previews/lineup33_sl06.jpg"
+      ],
+      "description": "英検5級を5時間でマスターできる参考書。",
+      "instructorImage": "Assets/img/teachers/inst08_ph.png",
+      "instructorDescription": "",
+      "videoUrl": "https://www.youtube.com/embed/T0FcHkn68Uw",
+      "purchaseUrl": "https://hon.gakken.jp/book/1130638000"
     }
   ]
 };

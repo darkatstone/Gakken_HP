@@ -229,7 +229,6 @@
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .video-viewer-intro-text {
@@ -304,6 +303,10 @@
     background: linear-gradient(135deg, #1bb8ce, #2A9FE0, #1bb8ce);
     z-index: -1;
     pointer-events: none;
+}
+
+.video-viewer-step.step-no-border::before {
+    display: none;
 }
 
 .step-number {

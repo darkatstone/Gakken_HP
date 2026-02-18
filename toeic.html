@@ -14,14 +14,14 @@
     <meta property="og:url" content="https://example.com/toeic.html">
     <meta property="og:title" content="TOEICムビスタ | ムビスタ SERIES SITE">
     <meta property="og:description" content="TOEIC向けムビスタシリーズの教材紹介ページ。講師紹介、教材一覧、サンプル動画などをご覧いただけます。">
-    <meta property="og:image" content="https://example.com/Assets/img/common/header_logo.png">
+    <meta property="og:image" content="https://example.com/Assets/img/common/header_logo.svg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://example.com/toeic.html">
     <meta property="twitter:title" content="TOEICムビスタ | ムビスタ SERIES SITE">
     <meta property="twitter:description" content="TOEIC向けムビスタシリーズの教材紹介ページ。講師紹介、教材一覧、サンプル動画などをご覧いただけます。">
-    <meta property="twitter:image" content="https://example.com/Assets/img/common/header_logo.png">
+    <meta property="twitter:image" content="https://example.com/Assets/img/common/header_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <a href="index.html"><img src="Assets/img/common/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+                <a href="index.html"><img src="Assets/img/common/header_logo.svg" alt="ムビスタ SERIES SITE" class="logo-image"></a>
             </div>
             <nav class="header-right" id="headerNav">
                 <a href="u-exam.html" class="nav-link">大学受験</a>
@@ -85,8 +85,15 @@
                     自宅にいながらスコアアップに必要な知識と解き方をスピード攻略できます。</p>
             </div>
             <div class="hero-image-right">
-                <img src="Assets/img/common/bg1 (2).png" alt="Hero Image" class="hero-right-image-img">
             </div>
+        </div>
+
+        <!-- Hero SVG Container - Direct child of hero-section -->
+        <div class="hero-svg-container">
+            <img src="Assets/img/SVG/Asset 18.svg" alt="Character illustration" class="hero-svg-image hero-svg-1">
+            <img src="Assets/img/SVG/Asset 19.svg" alt="Character illustration" class="hero-svg-image hero-svg-2">
+            <img src="Assets/img/SVG/Asset 20.svg" alt="Character illustration" class="hero-svg-image hero-svg-3">
+            <img src="Assets/img/SVG/Asset 21.svg" alt="Character illustration" class="hero-svg-image hero-svg-4">
         </div>
     </main>
 
@@ -115,7 +122,7 @@
         <div class="sidebar-content">
             <button class="sidebar-close" id="sidebarClose" aria-label="閉じる">×</button>
             <div class="sidebar-logo">
-                <a href="index.html"><img src="Assets/img/common/header_logo.png" alt="ムビスタ SERIES SITE" class="logo-image"></a>
+                <a href="index.html"><img src="Assets/img/common/header_logo.svg" alt="ムビスタ SERIES SITE" class="logo-image"></a>
             </div>
             <nav class="sidebar-nav">
                 <a href="u-exam.html" class="sidebar-link">大学受験</a>
@@ -182,105 +189,26 @@
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="news-section">
-        <div class="news-container">
-            <div class="news-top">
-                <div class="news-title-bg">NEWS</div>
-            </div>
-            <div class="news-list">
-                <a href="#" class="news-item">
-                    <div class="news-date">2026.03.02</div>
-                    <div class="news-category">ムビスタ</div>
-                    <div class="news-description">シリーズ公式サイトリニューアル</div>
-                    <div class="news-arrow">→</div>
-                </a>
-                <a href="#" class="news-item">
-                    <div class="news-date">2026.02.19</div>
-                    <div class="news-category">英検</div>
-                    <div class="news-description">『守屋のたった５時間で英検５級　総合対策』英検ムビスタ』『守屋のたった５時間で英検４級　総合対策』発売</div>
-                    <div class="news-arrow">→</div>
-                </a>
-                <a href="https://prtimes.jp/main/html/rd/p/000008477.000002535.html" class="news-item" target="_blank" rel="noopener noreferrer">
-                    <div class="news-date">2025.12.11</div>
-                    <div class="news-category">大学受験</div>
-                    <div class="news-description">「良問特訓シリーズ」に「スタンダード」3冊が登場！</div>
-                    <div class="news-arrow">→</div>
-                </a>
-                <a href="https://prtimes.jp/main/html/rd/p/000008226.000002535.html" class="news-item" target="_blank" rel="noopener noreferrer">
-                    <div class="news-date">2025.10.02</div>
-                    <div class="news-category">大学受験</div>
-                    <div class="news-description">『鈴木のたった7時間で和文英訳』『鈴木のたった7時間で自由英作文』発売</div>
-                    <div class="news-arrow">→</div>
-                </a>
-                <a href="https://prtimes.jp/main/html/rd/p/000008219.000002535.html" class="news-item" target="_blank" rel="noopener noreferrer">
-                    <div class="news-date">2025.09.29</div>
-                    <div class="news-category">TOEIC</div>
-                    <div class="news-description">「TOEICムビスタ」創刊</div>
-                    <div class="news-arrow">→</div>
-                </a>
-            </div>
-            <button class="news-view-all-button">一覧を見る</button>
-        </div>
-    </section>
-
     <!-- Footer Section -->
     <footer class="footer-section">
         <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-logo">
-                        <img src="Assets/img/common/footer-logo.png" alt="Gakken" class="footer-logo-image">
-                    </div>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <span class="contact-icon">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 0C2.69 0 0 2.69 0 6C0 9.31 2.69 12 6 12C9.31 12 12 9.31 12 6C12 2.69 9.31 0 6 0ZM6 11C3.24 11 1 8.76 1 6C1 3.24 3.24 1 6 1C8.76 1 11 3.24 11 6C11 8.76 8.76 11 6 11Z" fill="white"/>
-                                    <circle cx="6" cy="6" r="2" fill="white"/>
-                                </svg>
-                            </span>
-                            <span class="contact-text">東京都品川区西五反田二丁目11番8号</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.5 1C1.67 1 1 1.67 1 2.5V9.5C1 10.33 1.67 11 2.5 11H9.5C10.33 11 11 10.33 11 9.5V2.5C11 1.67 10.33 1 9.5 1H2.5ZM2.5 2H9.5C9.78 2 10 2.22 10 2.5V9.5C10 9.78 9.78 10 9.5 10H2.5C2.22 10 2 9.78 2 9.5V2.5C2 2.22 2.22 2 2.5 2Z" fill="white"/>
-                                    <path d="M3 3H9V4H3V3ZM3 5H9V6H3V5ZM3 7H7V8H3V7Z" fill="white"/>
-                                </svg>
-                            </span>
-                            <span class="contact-text">03-6431-1001 (代表)</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 2H10V10H2V2ZM3 3V9H9V3H3Z" fill="white"/>
-                                    <path d="M3 3L6 6L9 3" stroke="white" stroke-width="1" fill="none"/>
-                                    <path d="M3 9L6 6L9 9" stroke="white" stroke-width="1" fill="none"/>
-                                </svg>
-                            </span>
-                            <span class="contact-text">info@gakken-ew.com</span>
-                        </div>
-                    </div>
-                </div>
                 <div class="footer-right">
                     <div class="footer-nav-column">
                         <a href="#" class="footer-link">プライバシーポリシー</a>
                         <a href="#" class="footer-link">利用規約</a>
                         <a href="#" class="footer-link">お問い合わせ</a>
                     </div>
-                    <div class="footer-nav-column">
-                        <a href="#" class="footer-link">会社概要</a>
-                        <a href="#" class="footer-link">施工実績</a>
-                        <a href="#" class="footer-link">採用情報</a>
-                        <a href="#" class="footer-link">お知らせ</a>
-                        <a href="#" class="footer-link">お問い合わせ</a>
+                </div>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="Assets/img/common/footer-logo.png" alt="Gakken" class="footer-logo-image">
                     </div>
                 </div>
             </div>
             <div class="footer-divider"></div>
             <div class="footer-copyright">
-                <p>©2025 株式会社学研ホールディングス. All rights reserved.</p>
+                <p>@Gakken</p>
             </div>
         </div>
     </footer>

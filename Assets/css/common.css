@@ -59,12 +59,13 @@ body {
 }
 
 .logo-image {
-    height: auto;
-    max-height: 50px;
+    height: 50px;
     width: auto;
+    max-width: 200px;
     object-fit: contain;
     transition: transform 0.3s ease, opacity 0.3s ease;
     cursor: pointer;
+    display: block;
 }
 
 .logo-image:hover {
@@ -183,7 +184,7 @@ body {
 .footer-section {
     position: relative;
     width: 100%;
-    background: linear-gradient(0deg, #009944 0%, #00cc55 60%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%,#2ea5fa 50%, #1ea1ff 100%);
     padding: 120px 40px 80px 40px;
     color: #ffffff;
 }
@@ -195,22 +196,29 @@ body {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
 .footer-left {
     flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .footer-logo {
-    margin-bottom: 32px;
+    margin-bottom: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-logo-image {
-    height: 40px;
+    height: 32px;
     width: auto;
 }
 
@@ -250,15 +258,18 @@ body {
 
 .footer-right {
     display: flex;
-    gap: 60px;
+    gap: 0;
     flex: 1;
-    justify-content: flex-end;
+    justify-content: center;
+    width: 100%;
 }
 
 .footer-nav-column {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-link {
@@ -427,7 +438,8 @@ body {
 }
 
 .sidebar-logo .logo-image {
-    max-height: 60px;
+    height: 60px;
+    max-width: 240px;
 }
 
 .sidebar-nav {
@@ -568,7 +580,8 @@ body {
     }
     
     .logo-image {
-        max-height: 60px;
+        height: 60px;
+        max-width: 240px;
     }
     
     .mobile-menu-toggle {
@@ -580,24 +593,27 @@ body {
     }
     
     .footer-section {
-        padding: 60px 30px 30px 30px;
+        padding: 60px 30px 80px 30px;
     }
     
     .footer-content {
         flex-direction: column;
-        gap: 40px;
-        justify-items: center;
+        gap: 30px;
+        justify-content: center;
         align-items: center;
     }
     
     .footer-right {
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 40px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .footer-nav-column {
+        gap: 30px;
     }
     
     .footer-logo-image {
-        height: 35px;
+        height: 28px;
     }
     
     .footer-logo {
@@ -626,16 +642,19 @@ body {
     }
     
     .logo-image {
-        max-height: 50px;
+        height: 50px;
+        max-width: 200px;
     }
     
     .footer-section {
-        padding: 60px 20px 40px 20px;
+        padding: 60px 20px 80px 20px;
     }
     
     .footer-content {
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
     }
 
     .pc-only {
@@ -643,11 +662,15 @@ body {
     }
     
     .footer-right {
-        gap: 30px;
+        justify-content: center;
+        width: 100%;
     }
     
     .footer-nav-column {
-        width: 100%;
+        flex-direction: row;
+        gap: 20px;
+        width: auto;
+        flex-wrap: wrap;
     }
     
     .contact-item {
@@ -676,19 +699,28 @@ body {
     }
     
     .logo-image {
-        max-height: 40px;
+        height: 40px;
+        max-width: 160px;
     }
     
     .footer-section {
-        padding: 40px 15px 30px 15px;
+        padding: 40px 15px 80px 15px;
     }
     
     .footer-content {
-        gap: 25px;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
     }
     
     .footer-right {
-        gap: 25px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .footer-nav-column {
+        gap: 15px;
+        flex-wrap: wrap;
     }
     
     .contact-item {
