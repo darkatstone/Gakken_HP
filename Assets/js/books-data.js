@@ -227,7 +227,7 @@ window.booksData = {
     },
     {
       "id": "book-011",
-      "title": "八澤の良問特訓【2】　スタンダード古文",
+      "title": "八澤の良問特訓【2】スタンダード古文",
       "author": "八澤龍之介",
       "authorId": "teacher-001",
       "price": "1,980円（税込）",
@@ -250,7 +250,7 @@ window.booksData = {
     },
     {
       "id": "book-012",
-      "title": "岡本の良問特訓　漢文句法",
+      "title": "岡本の良問特訓 漢文句法",
       "author": "岡本梨奈",
       "authorId": "teacher-002",
       "price": "1,760円（税込）",
@@ -267,7 +267,7 @@ window.booksData = {
       "description": "漢文句法の良問特訓問題集。",
       "instructorImage": "Assets/img/teachers/inst02_ph.png",
       "instructorDescription": "",
-      "videoUrl": "",
+      "videoUrl": "https://www.youtube.com/embed/k2KiG_ZiPlw?si=WiB1y4z7d9ac_P4z",
       "purchaseUrl": "https://hon.gakken.jp/book/1130613300"
     },
     {
@@ -412,7 +412,7 @@ window.booksData = {
     },
     {
       "id": "book-019",
-      "title": "守屋のたった5時間で英検®3級",
+      "title": "守屋のたった5時間で英検®3級 総合対策",
       "author": "守屋佑真",
       "authorId": "teacher-008",
       "price": "1,760円（税込）",
@@ -435,7 +435,7 @@ window.booksData = {
     },
     {
       "id": "book-020",
-      "title": "宮下のたった5時間で英検®準2級　総合対策",
+      "title": "宮下のたった5時間で英検®準2級 総合対策",
       "author": "宮下卓也",
       "authorId": "teacher-009",
       "price": "1,870円（税込）",
@@ -458,7 +458,7 @@ window.booksData = {
     },
     {
       "id": "book-021",
-      "title": "杉本のたった5時間で英検®準2級プラス",
+      "title": "杉本のたった5時間で英検®準2級プラス 総合 対策",
       "author": "杉本綾乃",
       "authorId": "teacher-010",
       "price": "1,925円（税込）",
@@ -711,7 +711,7 @@ window.booksData = {
     },
     {
       "id": "book-032",
-      "title": "守屋のたった5時間で英検®4級",
+      "title": "守屋のたった5時間で英検®4級 総合対策",
       "author": "守屋佑真",
       "authorId": "teacher-008",
       "price": "1,705円（税込）",
@@ -734,7 +734,7 @@ window.booksData = {
     },
     {
       "id": "book-033",
-      "title": "守屋のたった5時間で英検®5級",
+      "title": "守屋のたった5時間で英検®5級 総合対策",
       "author": "守屋佑真",
       "authorId": "teacher-008",
       "price": "1,650円（税込）",

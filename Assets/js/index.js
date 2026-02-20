@@ -662,28 +662,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate hero illustrations with random delay
     function animateHeroIllustrations() {
         const illustrations = document.querySelectorAll('.hero-illustration');
+        const illustrationsSp = document.querySelectorAll('.hero-illustration-sp');
         
-        if (illustrations.length === 0) return;
-        
-        // Create array of indices and shuffle them
-        const indices = Array.from({ length: illustrations.length }, (_, i) => i);
-        for (let i = indices.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [indices[i], indices[j]] = [indices[j], indices[i]];
+        // Animate desktop illustrations
+        if (illustrations.length > 0) {
+            // Create array of indices and shuffle them
+            const indices = Array.from({ length: illustrations.length }, (_, i) => i);
+            for (let i = indices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indices[i], indices[j]] = [indices[j], indices[i]];
+            }
+            
+            // Apply random delay to each illustration
+            indices.forEach((originalIndex, shuffledIndex) => {
+                const illustration = illustrations[originalIndex];
+                // Random delay between 0 and 1.5 seconds, with slight stagger
+                const baseDelay = shuffledIndex * 0.1; // Stagger by 0.1s
+                const randomDelay = Math.random() * 0.5; // Additional random 0-0.5s
+                const totalDelay = baseDelay + randomDelay;
+                
+                setTimeout(() => {
+                    illustration.classList.add('visible');
+                }, totalDelay * 1000);
+            });
         }
         
-        // Apply random delay to each illustration
-        indices.forEach((originalIndex, shuffledIndex) => {
-            const illustration = illustrations[originalIndex];
-            // Random delay between 0 and 1.5 seconds, with slight stagger
-            const baseDelay = shuffledIndex * 0.1; // Stagger by 0.1s
-            const randomDelay = Math.random() * 0.5; // Additional random 0-0.5s
-            const totalDelay = baseDelay + randomDelay;
+        // Animate SP illustrations
+        if (illustrationsSp.length > 0) {
+            // Create array of indices and shuffle them
+            const indicesSp = Array.from({ length: illustrationsSp.length }, (_, i) => i);
+            for (let i = indicesSp.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indicesSp[i], indicesSp[j]] = [indicesSp[j], indicesSp[i]];
+            }
             
-            setTimeout(() => {
-                illustration.classList.add('visible');
-            }, totalDelay * 1000);
-        });
+            // Apply random delay to each illustration
+            indicesSp.forEach((originalIndex, shuffledIndex) => {
+                const illustration = illustrationsSp[originalIndex];
+                // Random delay between 0 and 1.5 seconds, with slight stagger
+                const baseDelay = shuffledIndex * 0.1; // Stagger by 0.1s
+                const randomDelay = Math.random() * 0.5; // Additional random 0-0.5s
+                const totalDelay = baseDelay + randomDelay;
+                
+                setTimeout(() => {
+                    illustration.style.opacity = '1';
+                }, totalDelay * 1000);
+            });
+        }
     }
     
     // Create dots for hero section

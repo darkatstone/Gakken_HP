@@ -135,7 +135,7 @@ window.teachersData = {
       "nameJpHiragana": "もりや ゆうま",
       "image": "Assets/img/teachers/inst08_ph.png",
       "description": "河合塾英語科講師。早稲田大学法学部卒業。中学3年生〜難関国公立・難関私大などの受験学年トップ層まで、幅広く授業を担当。大学受験対策のほか、英検・GTEC・TEAPなど英語の民間資格試験対策にも精通した人気講師。保育士。著書に、『登木健司・守屋佑真 英語内容一致問題講義の実況中継』『中学入試 英語授業の実況中継』『これならわかるライティング授業の実況中継』（以上語学春秋社）、『GTEC 2週間でスピーキング・ライティングの力が面白いほど身につく本』『CD付 イラストで直感的にわかる 小学英語ワークブック 小学生のうちから学んでおきたい英文法が身につく』（以上KADOKAWA）などがある。",
-      "tags": ["英検3級"],
+      "tags": ["英検3級","英検4級","英検5級"],
       "referenceBooks": [],
       "videoUrl": "https://www.youtube.com/embed/T0FcHkn68Uw",
       "socialLinks": {
@@ -313,7 +313,7 @@ window.teachersData = {
         "twitter": "https://x.com/HUMMER_TOEIC",
         "instagram": ""
       },
-      "books": ["book-019"]
+      "books": ["book-031"]
     },
     {
       "id": "teacher-020",

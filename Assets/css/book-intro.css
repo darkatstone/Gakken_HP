@@ -100,6 +100,7 @@
     overflow-y: auto;
     position: sticky;
     top: 120px;
+    overflow: visible;
 }
 
 .book-detail-profile {
@@ -123,6 +124,16 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-detail-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 20px 0;
+    text-align: center;
+    line-height: 1.6;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
 }
 
 .book-detail-info {
@@ -278,8 +289,12 @@
 
 .book-detail-instructor-image-wrapper {
     flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
     position: relative;
     transition: transform 0.3s ease;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .book-detail-instructor-image-wrapper[data-teacher-id]:hover {
@@ -292,7 +307,8 @@
 
 .book-detail-instructor-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
@@ -312,6 +328,31 @@
 
 .book-detail-instructor-description {
     flex: 1;
+}
+
+.book-detail-instructor-name-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 16px 0;
+}
+
+.book-detail-instructor-name-jp {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333;
+    margin: 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+.book-detail-instructor-name-en {
+    font-size: 14px !important;
+    font-weight: 400;
+    color: #999999;
+    margin: 0;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .book-detail-instructor-description p {
@@ -424,6 +465,7 @@
     .book-detail-instructor-image-wrapper {
         flex: 0 0 auto;
         width: 180px;
+        height: 180px;
         margin: 0 auto;
     }
     
@@ -455,9 +497,6 @@
     .book-detail-fixed-back-button svg {
         width: 16px;
         height: 16px;
-    }
-        margin: 30px auto 0 auto;
-        display: block;
     }
     
     .book-detail-section-title {

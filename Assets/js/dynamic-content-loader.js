@@ -82,7 +82,7 @@ function generateTeacherHTML(teacher) {
     // 科目タグ（通常1行、長いものは幅を少し広く）
     const subjectTagsHTML = (teacher.tags || []).map(tag => {
         const isWide = tag.includes('<br>') || tag.length > 6;
-        const extraClass = isWide ? ' teacher-tag-wide' : '';
+        const extraClass = isWide ? ' teacher-tag-wide teacher-tag-multiline' : '';
         return `<span class="teacher-tag teacher-tag-singleline${extraClass}">${tag}</span>`;
     }).join('');
     

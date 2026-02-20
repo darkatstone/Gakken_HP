@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                             <div class="book-detail-cover-wrapper">
                                 <img src="${bookData.coverImage || 'Assets/img/book1.png'}" alt="${bookData.title || '本のカバー'}" class="book-detail-cover">
                             </div>
+                            <h2 class="book-detail-title">${bookData.title || '書籍名'}</h2>
                             <div class="book-detail-info">
                                 <p class="book-detail-meta"><strong>著者:</strong> ${bookData.author || '著者名'}</p>
                                 <p class="book-detail-meta"><strong>本体価格:</strong> ${bookData.price || '価格'}</p>
@@ -60,16 +61,20 @@ document.addEventListener('DOMContentLoaded', async function() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="book-detail-section-block">
+                            </div>
+                            <div class="book-detail-section-block">
                             <h3 class="book-detail-section-title">PROFILE</h3>
                             <div class="book-detail-instructor-profile">
-                                <div class="book-detail-instructor-image-wrapper" data-teacher-id="${bookData.authorId || ''}" style="cursor: ${bookData.authorId ? 'pointer' : 'default'};">
-                                    <img src="${author?.image || bookData.authorImage || bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師" class="book-detail-instructor-image">
+                            <div class="book-detail-instructor-image-wrapper" data-teacher-id="${bookData.authorId || ''}" style="cursor: ${bookData.authorId ? 'pointer' : 'default'};">
+                            <img src="${author?.image || bookData.authorImage || bookData.instructorImage || 'Assets/img/teacher1.png'}" alt="講師" class="book-detail-instructor-image">
+                            </div>
+                            <div class="book-detail-instructor-description">
+                                <div class="book-detail-instructor-name-wrapper">
+                                    <h2 class="book-detail-instructor-name-jp">${author?.nameJp || bookData.author || '著者名'}</h2>
+                                    <p class="book-detail-instructor-name-en">${author?.nameEn || ''}</p>
                                 </div>
-                                <div class="book-detail-instructor-description">
-                                    <p>${author?.description || bookData.instructorDescription || bookData.description || '講師の説明文がここに表示されます。'}</p>
-                                </div>
+                                <p>${author?.description || bookData.instructorDescription || bookData.description || '講師の説明文がここに表示されます。'}</p>
+                            </div>
                             </div>
                         </div>
                     </div>

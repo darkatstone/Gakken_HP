@@ -208,6 +208,7 @@
     height: 340px;
     max-width: 255px;
     object-fit: contain;
+    transform: translateY(20px) !important;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     bottom: 0;
@@ -587,15 +588,19 @@
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    flex: 0 0 calc(33.333% - 6px);
-    max-width: calc(33.333% - 6px);
+    flex: 0 0 60px;
+    max-width: 60px;
+    min-width: 60px;
     white-space: nowrap;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .teacher-tag-wide {
-    flex: 0 0 calc(50% - 6px);
-    max-width: calc(50% - 6px);
+    flex: 0 0 70px;
+    max-width: 70px;
+    min-width: 70px;
+    white-space: normal;
+    line-height: 1.2;
 }
 
 .teacher-tag-singleline {
@@ -690,6 +695,14 @@
     transform: translateY(0);
 }
 
+.books-release-date-note {
+    font-size: 12px;
+    font-weight: 400;
+    color: #999999;
+    margin: 8px 0 0 0;
+    text-align: center;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
 
 .books-intro-text {
     font-size: 18px;
@@ -1358,10 +1371,17 @@
     .teacher-tag {
         font-size: 9px;
         padding: 5px 5px;
-        flex: 0 0 calc(33.333% - 4px);
-        max-width: calc(33.333% - 4px);
+        flex: 0 0 60px;
+        max-width: 60px;
+        min-width: 60px;
         display: inline-block;
         white-space: nowrap;
+    }
+    
+    .teacher-tag-wide {
+        flex: 0 0 70px;
+        max-width: 70px;
+        min-width: 70px;
     }
     
     .teacher-tag-singleline {

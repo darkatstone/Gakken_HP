@@ -208,6 +208,7 @@
     height: 340px;
     max-width: 255px;
     object-fit: contain;
+    transform: translateY(25px) !important;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     bottom: 0;
@@ -219,18 +220,23 @@
 }
 
 .hero-svg-2 {
-    right: 212px;
+    right: 160px;
     animation-delay: 0.3s;
 }
 
 .hero-svg-3 {
-    right: 424px;
+    right: 320px;
     animation-delay: 0.5s;
 }
 
 .hero-svg-4 {
-    right: 636px;
+    right: 480px;
     animation-delay: 0.7s;
+}
+
+.hero-svg-5 {
+    right: 640px;
+    animation-delay: 0.9s;
 }
 
 @keyframes fadeInUp {
@@ -620,15 +626,19 @@
     font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    flex: 0 0 calc(33.333% - 6px);
-    max-width: calc(33.333% - 6px);
+    flex: 0 0 60px;
+    max-width: 60px;
+    min-width: 60px;
     white-space: nowrap;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .teacher-tag-wide {
-    flex: 0 0 calc(50% - 6px);
-    max-width: calc(50% - 6px);
+    flex: 0 0 70px;
+    max-width: 70px;
+    min-width: 70px;
+    white-space: normal;
+    line-height: 1.2;
 }
 
 .teacher-tag-singleline {
@@ -638,6 +648,8 @@
 
 .teacher-tag-multiline {
     -webkit-line-clamp: 2;
+    white-space: normal;
+    line-height: 1.2;
 }
 
 .teacher-reference-books {
@@ -723,6 +735,14 @@
     transform: translateY(0);
 }
 
+.books-release-date-note {
+    font-size: 12px;
+    font-weight: 400;
+    color: #999999;
+    margin: 8px 0 0 0;
+    text-align: center;
+    font-family: 'I-OTFゴシックオールドPro M{pm}', '游ゴシック Medium', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
 
 .books-intro-text {
     font-size: 18px;
@@ -1073,9 +1093,10 @@
     }
 
     .hero-svg-1 { right: 0; }
-    .hero-svg-2 { right: 125px; }
-    .hero-svg-3 { right: 250px; }
-    .hero-svg-4 { right: 375px; }
+    .hero-svg-2 { right: 95px; }
+    .hero-svg-3 { right: 190px; }
+    .hero-svg-4 { right: 285px; }
+    .hero-svg-5 { right: 380px; }
     
     .teachers-section {
         padding: 0 30px 60px;
@@ -1174,9 +1195,17 @@
     .hero-svg-1,
     .hero-svg-2,
     .hero-svg-3,
-    .hero-svg-4 {
+    .hero-svg-4,
+    .hero-svg-5 {
         right: auto;
+        order: 0;
     }
+    
+    .hero-svg-1 { order: 1; }
+    .hero-svg-2 { order: 2; }
+    .hero-svg-3 { order: 3; }
+    .hero-svg-4 { order: 4; }
+    .hero-svg-5 { order: 5; }
     
     .teachers-intro-section {
         padding: 80px 30px;
@@ -1312,9 +1341,17 @@
     .hero-svg-1,
     .hero-svg-2,
     .hero-svg-3,
-    .hero-svg-4 {
+    .hero-svg-4,
+    .hero-svg-5 {
         right: auto;
+        order: 0;
     }
+    
+    .hero-svg-1 { order: 1; }
+    .hero-svg-2 { order: 2; }
+    .hero-svg-3 { order: 3; }
+    .hero-svg-4 { order: 4; }
+    .hero-svg-5 { order: 5; }
     
     /* Show br tag on mobile */
     .hero-title-main br {
@@ -1428,10 +1465,17 @@
     .teacher-tag {
         font-size: 10px;
         padding: 5px 5px;
-        flex: 0 0 calc(33.333% - 4px);
-        max-width: calc(33.333% - 4px);
+        flex: 0 0 60px;
+        max-width: 60px;
+        min-width: 60px;
         display: inline-block;
         white-space: nowrap;
+    }
+    
+    .teacher-tag-wide {
+        flex: 0 0 70px;
+        max-width: 70px;
+        min-width: 70px;
     }
     
     .teacher-tag-singleline {
