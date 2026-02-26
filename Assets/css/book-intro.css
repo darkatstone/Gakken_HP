@@ -435,6 +435,7 @@
         width: 100%;
         position: relative;
         top: 0;
+        max-height: 100vh;
     }
     
     .book-detail-fixed-back-button {

@@ -78,34 +78,100 @@ async function loadPageContent(pageName) {
     initializeHiragana();
 }
 
+// Tag color mapping based on book cover colors
+function getTagColor(tagName) {
+    const tagColorMap = {
+        // 八澤龍之介
+        '古典文法': '#4A90E2', // Blue
+        '英文解釈': '#50C878', // Green
+        '古文読解': '#E91E63', // Pink/Magenta
+        'ベーシック古文': '#9E9E9E', // Gray
+        'スタンダード古文': '#B8860B', // Olive/Gold
+        // 岡本梨奈
+        '漢文句法': '#9C27B0', // Purple
+        // 山城大樹
+        '英文法': '#FF6B35', // Orange
+        'ベーシック英文法': '#9E9E9E', // Gray
+        'スタンダード英文法': '#B8860B', // Olive/Gold
+        // 宗慶二
+        '現代文': '#2196F3', // Blue
+        'ベーシック現代文': '#9E9E9E', // Gray
+        'スタンダード現代文': '#B8860B', // Olive/Gold
+        // 小池陽慈
+        '小論文': '#795548', // Brown
+        // 上野柊
+        '日本史探究': '#F44336', // Red
+        // 伊藤敏
+        '世界史探究': '#FF9800', // Orange
+        // 大渕将克
+        '生物基礎': '#4CAF50', // Green
+        // 藤原進之介
+        '情報I': '#00BCD4', // Cyan
+        // 鈴木健士
+        '自由英作文': '#3F51B5', // Indigo
+        '和文英訳': '#009688', // Teal
+        // 守屋佑真
+        '英検3級': '#E91E63', // Pink
+        '英検4級': '#9C27B0', // Purple
+        '英検5級': '#2196F3', // Blue
+        // 宮下卓也
+        '英検準2級': '#FF9800', // Orange
+        // 杉本綾乃
+        '英検<br>準2級プラス': '#FF9800', // Orange
+        // 成川博康
+        '英検2級': '#F44336', // Red
+        // 嶋津幸樹
+        '英検準1級': '#4CAF50', // Green
+        // 藤枝暁生
+        'TOEIC600点': '#00BCD4', // Cyan
+        // 駒井亜紀子
+        'TOEIC730点': '#3F51B5', // Indigo
+        // 濱崎潤之輔
+        'TOEIC900点': '#FF6B35', // Orange
+        // Jun
+        'TOEIC入門編': '#9E9E9E' // Gray
+    };
+    
+    // Remove <br> tags for color lookup
+    const cleanTagName = tagName.replace(/<br\s*\/?>/gi, '');
+    return tagColorMap[cleanTagName] || tagColorMap[tagName] || '#e0e0e0'; // Default gray
+}
+
 function generateTeacherHTML(teacher) {
     // 科目タグ（通常1行、長いものは幅を少し広く）
     const subjectTagsHTML = (teacher.tags || []).map(tag => {
         const isWide = tag.includes('<br>') || tag.length > 6;
         const extraClass = isWide ? ' teacher-tag-wide teacher-tag-multiline' : '';
-        return `<span class="teacher-tag teacher-tag-singleline${extraClass}">${tag}</span>`;
+        const tagColor = getTagColor(tag);
+        const tagText = tag.replace(/<br\s*\/?>/gi, '<br>');
+        return `<span class="teacher-tag teacher-tag-singleline${extraClass}" style="background-color: ${tagColor}; color: ${tagColor === '#e0e0e0' ? '#333333' : '#ffffff'};" data-tag="${escapeHtml(tagText)}">${tagText}</span>`;
     }).join('');
     
     // 参考書タグ（2行表示）
     const referenceBooksHTML = (teacher.referenceBooks || []).map(book => {
         let firstLine = '';
         let secondLine = '';
+        let fullTagName = '';
 
         // ベーシック / スタンダード 系は単語ごとに改行
         if (book.startsWith('ベーシック')) {
             firstLine = 'ベーシック';
             secondLine = book.substring('ベーシック'.length);
+            fullTagName = `ベーシック${secondLine}`;
         } else if (book.startsWith('スタンダード')) {
             firstLine = 'スタンダード';
             secondLine = book.substring('スタンダード'.length);
+            fullTagName = `スタンダード${secondLine}`;
         } else {
             // それ以外は従来どおり中央で分割
             const midPoint = Math.ceil(book.length / 2);
             firstLine = book.substring(0, midPoint);
             secondLine = book.substring(midPoint);
+            fullTagName = book;
         }
 
-        return `<span class="teacher-reference-book-tag teacher-reference-book-tag-singleline">${firstLine}<br>${secondLine}</span>`;
+        const tagColor = getTagColor(fullTagName);
+        return `<span class="teacher-reference-book-tag teacher-reference-book-tag-singleline" style="background-color: ${tagColor}; color: ${tagColor === '#e0e0e0' ? '#666666' : '#ffffff'}; border-color: ${tagColor === '#e0e0e0' ? '#d0d0d0' : tagColor};" data-tag="${escapeHtml(book)}">${firstLine}<br>${secondLine}</span>`;
     }).join('');
     
     const hiraganaHTML = teacher.nameJpHiragana ? `<p class="teacher-name-jp-hiragana">${teacher.nameJpHiragana}</p>` : '';

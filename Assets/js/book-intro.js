@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // Populate book detail section
         const bookDetailContainer = document.querySelector('.book-detail-container');
+
+        // タイトルの表示用（特定書籍で改行を入れる）
+        let displayTitle = bookData.title || '書籍名';
+        if (displayTitle.includes('伊藤のたった10時間で世界史探究 <近代～現代＋文化史>')) {
+            displayTitle = displayTitle.replace('世界史探究 ', '世界史探究<br>');
+        }
+
         if (bookDetailContainer) {
             bookDetailContainer.innerHTML = `
                 <div class="book-detail-layout">
@@ -22,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                             <div class="book-detail-cover-wrapper">
                                 <img src="${bookData.coverImage || 'Assets/img/book1.png'}" alt="${bookData.title || '本のカバー'}" class="book-detail-cover">
                             </div>
-                            <h2 class="book-detail-title">${bookData.title || '書籍名'}</h2>
+                            <h2 class="book-detail-title">${displayTitle}</h2>
                             <div class="book-detail-info">
                                 <p class="book-detail-meta"><strong>著者:</strong> ${bookData.author || '著者名'}</p>
                                 <p class="book-detail-meta"><strong>本体価格:</strong> ${bookData.price || '価格'}</p>

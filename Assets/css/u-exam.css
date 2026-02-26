@@ -167,12 +167,12 @@
 /* Hero Text Container */
 .hero-text-container {
     position: relative;
-    z-index: 10;
+    z-index: 3;
     width: 100%;
     max-width: 1400px;
     display: flex;
     justify-content: flex-start;
-    align-items: stretch;
+    align-items: center;
     padding: 0 60px;
     margin: 0 auto;
     height: 100%;
@@ -200,37 +200,69 @@
     right: 0;
     width: auto;
     height: auto;
+    z-index: 2;
 }
 
 .hero-svg-image {
-    position: absolute;
+    position: relative;
     width: auto;
     height: 340px;
     max-width: 255px;
     object-fit: contain;
     opacity: 0;
-    transform: translateY(20px) !important;
+    transform: translateY(30px) !important;
     animation: fadeInUp 0.8s ease-out forwards;
     bottom: 0;
+    flex-shrink: 0;
+}
+
+/* Gradually reduce hero illustration size as viewport width decreases */
+@media (max-width: 1600px) {
+    .hero-svg-image {
+        height: 320px;
+        max-width: 230px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .hero-svg-image {
+        height: 300px;
+        max-width: 210px;
+    }
+}
+
+
+@media (max-width: 1280px) {
+    .hero-svg-image {
+        height: 280px;
+        max-width: 195px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-svg-image {
+        height: 260px;
+        max-width: 185px;
+    }
 }
 
 .hero-svg-1 {
-    right: 0;
+    margin-left: 0;
     animation-delay: 0.1s;
 }
 
 .hero-svg-2 {
-    right: 212px;
+    margin-left: -40px;
     animation-delay: 0.3s;
 }
 
 .hero-svg-3 {
-    right: 424px;
+    margin-left: -40px;
     animation-delay: 0.5s;
 }
 
 .hero-svg-4 {
-    right: 636px;
+    margin-left: -40px;
     animation-delay: 0.7s;
 }
 
@@ -283,7 +315,7 @@
 .hero-title-main {
     display: inline-block;
     color: #ffffff;
-    font-size: 56px;
+    font-size: 64px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.15em;
@@ -296,6 +328,19 @@
 .hero-title-main br {
     display: none;
 }
+
+/* Slightly shrink title and illustrations around 1315px width */
+@media (max-width: 1315px) {
+    .hero-title-main {
+        font-size: 50px;
+    }
+    
+    .hero-svg-image {
+        height: 290px;
+        max-width: 205px;
+    }
+}
+
 
 .hero-subtitle {
     color: #ffffff;
@@ -971,6 +1016,64 @@
 /* News Section styles are in common.css */
 
 /* ===== RESPONSIVE ===== */
+/* 1103px以下: SVG を下、テキストを中央に配置（これより小さい幅でもレイアウトは維持） */
+@media (max-width: 1103px) {
+    .hero-section {
+        height: 100vh;
+        padding-top: 80px;
+    }
+    
+    .hero-image-right {
+        display: none;
+    }
+    
+    .hero-text-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 40px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-text-left {
+        align-items: center;
+        margin-bottom: 25%;
+    }
+    
+    .hero-title-left {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero-subtitle {
+        text-align: center;
+    }
+    
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+        transform: none;
+    }
+    
+    .hero-svg-image {
+        position: relative;
+        margin-left: -20px;
+    }
+    
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 1024px) {
     .header {
         padding: 0 20px;
@@ -983,11 +1086,7 @@
         padding: 0 20px;
     }
     
-    .hero-section {
-        padding-top: 80px;
-        min-height: 60vh;
-    }
-    
+    /* hero-section の高さやテキスト配置は 1103px 以下の設定を維持 */
     .logo-image {
         height: 60px;
         max-width: 240px;
@@ -1005,7 +1104,7 @@
     }
     
     .hero-text-left {
-        align-items: flex-start;
+        align-items: center;
     }
     
     .hero-title-left {
@@ -1014,7 +1113,7 @@
     }
     
     .hero-title-main {
-        font-size: 52px;
+        font-size: 60px;
         letter-spacing: 0.12em;
     }
     
@@ -1023,29 +1122,18 @@
         letter-spacing: 0.02em;
     }
     
-    .hero-svg-container {
-        right: 0;
-    }
-    
     .hero-svg-image {
-        height: 200px;
-        max-width: 150px;
+        height: 280px;
+        max-width: 200px;
     }
-    
-    .hero-svg-1 {
-        right: 0;
-    }
-    
-    .hero-svg-2 {
-        right: 125px;
-    }
+
     
     .hero-svg-3 {
-        right: 250px;
+        margin-left: -30px;
     }
     
     .hero-svg-4 {
-        right: 375px;
+        margin-left: -30px;
     }
     
     .hero-right-image-img {
@@ -1089,6 +1177,16 @@
     /* News Section responsive styles are in common.css */
 }
 
+/* Additional breakpoint for gradual size reduction */
+@media (max-width: 900px) {
+    .hero-svg-image {
+        height: 190px;
+        max-width: 150px;
+    }
+    
+
+}
+
 @media (max-width: 768px) {
     .hero-text-container {
         padding: 0 20px;
@@ -1129,44 +1227,36 @@
     .hero-image-right {
         display: none;
     }
-
+    
+    .hero-text-container {
+        padding: 0 15px 0 20px;
+    }
+    
     .hero-svg-container {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        width: auto;
+        padding-right: 5px;
     }
     
     .hero-svg-image {
         position: relative;
-        height: 180px;
-        max-width: 135px;
-        margin-left: -20px;
+        height: 240px;
+        max-width: 170px;
+        margin-left: -25px;
     }
     
     .hero-svg-image:first-child {
         margin-left: 0;
     }
     
-    .hero-svg-1 {
-        right: auto;
-    }
-    
     .hero-svg-2 {
-        right: auto;
+        margin-left: -25px;
     }
     
     .hero-svg-3 {
-        right: auto;
+        margin-left: -25px;
     }
     
     .hero-svg-4 {
-        right: auto;
+        margin-left: -25px;
     }
 
     .hero-right-image-img {
@@ -1176,6 +1266,10 @@
     
     .teachers-intro-section {
         padding: 80px 30px;
+    }
+
+    .sp-none {
+        display: none;
     }
     
     .teachers-intro-text {
@@ -1254,6 +1348,8 @@
     .hero-text-container {
         padding: 0 20px;
         justify-content: center;
+        width: 100%;
+        max-width: 100%;
     }
     
     .hero-text-left {
@@ -1279,6 +1375,7 @@
         left: 0;
         right: 0;
         width: 100%;
+        max-width: 100%;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -1305,19 +1402,23 @@
     }
     
     .hero-svg-1 {
+        height: 135px;
         right: auto;
     }
     
     .hero-svg-2 {
         right: auto;
+        height: 140px;
     }
     
     .hero-svg-3 {
         right: auto;
+        height: 130px;
     }
     
     .hero-svg-4 {
         right: auto;
+        height: 140px;
     }
     
     /* Show br tag on mobile */

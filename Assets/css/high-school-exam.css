@@ -167,7 +167,7 @@
 /* Hero Text Container */
 .hero-text-container {
     position: relative;
-    z-index: 10;
+    z-index: 3;
     width: 100%;
     max-width: 1400px;
     display: flex;
@@ -200,6 +200,7 @@
     right: 0;
     width: auto;
     height: auto;
+    z-index: 2;
 }
 
 .hero-svg-image {
@@ -484,7 +485,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         padding: 20px 0;
-}
+    }
 }
 
 @media (max-width: 580px) {
@@ -506,7 +507,7 @@
     .coming-soon-message {
         font-size: 24px;
         padding: 60px 20px;
-    }
+}
 }
 
 .teacher-card {
@@ -993,6 +994,100 @@
 /* Footer and Sidebar styles are in common.css */
 /* News Section styles are in common.css */
 
+/* ===== HERO RESPONSIVE ===== */
+/* Gradually reduce hero illustration size as viewport width decreases */
+@media (max-width: 1600px) {
+    .hero-svg-image { height: 320px; max-width: 230px; }
+}
+
+@media (max-width: 1400px) {
+    .hero-svg-image { height: 300px; max-width: 210px; }
+}
+
+@media (max-width: 1315px) {
+    .hero-title-main { font-size: 58px; }
+    .hero-svg-image { height: 290px; max-width: 205px; }
+}
+
+@media (max-width: 1280px) {
+    .hero-svg-image { height: 280px; max-width: 195px; }
+}
+
+@media (max-width: 1200px) {
+    .hero-svg-image { height: 260px; max-width: 185px; }
+}
+
+/* 1103px以下: SVG を下、テキストを中央に配置 */
+@media (max-width: 1103px) {
+    .hero-section {
+        height: 100vh;
+        padding-top: 80px;
+    }
+
+    .hero-image-right {
+        display: none;
+    }
+
+    .hero-text-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-text-left {
+        align-items: center;
+        margin-bottom: 25%;
+    }
+
+    .hero-title-left {
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+    }
+
+    .hero-svg-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0 10px;
+        box-sizing: border-box;
+        transform: none;
+    }
+
+    .hero-svg-image {
+        position: relative;
+        height: 240px;
+        max-width: 170px;
+        margin-left: -20px;
+        right: auto;
+        bottom: auto;
+    }
+
+    .hero-svg-image:first-child {
+        margin-left: 0;
+    }
+
+    .hero-svg-1,
+    .hero-svg-2,
+    .hero-svg-3,
+    .hero-svg-4,
+    .hero-svg-5 {
+        right: auto;
+        left: auto;
+    }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .header {
@@ -1006,11 +1101,7 @@
         padding: 0 20px;
     }
     
-    .hero-section {
-        padding-top: 80px;
-        min-height: 60vh;
-    }
-    
+    /* hero-section の高さやテキスト配置は 1103px 以下の設定を維持 */
     .logo-image {
         height: 60px;
         max-width: 240px;
@@ -1022,20 +1113,6 @@
         display: none;
     }
     
-    .hero-text-container {
-        padding: 0 40px;
-        justify-content: flex-start;
-    }
-    
-    .hero-text-left {
-        align-items: flex-start;
-    }
-    
-    .hero-title-left {
-        text-align: left;
-        width: auto;
-    }
-    
     .hero-title-main {
         font-size: 60px;
         letter-spacing: 0.12em;
@@ -1045,17 +1122,11 @@
         font-size: 16px;
         letter-spacing: 0.02em;
     }
-
+    
     .hero-svg-image {
         height: 200px;
         max-width: 150px;
     }
-
-    .hero-svg-1 { right: 0; }
-    .hero-svg-2 { right: 95px; }
-    .hero-svg-3 { right: 190px; }
-    .hero-svg-4 { right: 285px; }
-    .hero-svg-5 { right: 380px; }
     
     .teachers-section {
         padding: 0 30px 60px;
@@ -1099,11 +1170,16 @@
         padding: 0 20px;
         justify-content: center;
         flex-direction: column;
+        max-width: 100%;
     }
     
     .hero-text-left {
         align-items: center;
         margin-bottom: 30%;
+    }
+
+    .sp-none {
+        display: none;
     }
     
     .hero-title-left {
@@ -1139,6 +1215,7 @@
         transform: translateX(-50%);
         right: auto;
         display: flex;
+        z-index: 2;
         align-items: flex-end;
         justify-content: center;
         width: auto;
@@ -1277,6 +1354,7 @@
         right: 0;
         width: 100%;
         display: flex;
+        z-index: 2;
         align-items: flex-end;
         justify-content: space-between;
         padding: 0 2px;
@@ -1309,6 +1387,10 @@
         right: auto;
         order: 0;
     }
+
+    .hero-svg-2 {
+        width: 100px;
+    }
     
     .hero-svg-1 { order: 1; }
     .hero-svg-2 { order: 2; }
@@ -1320,7 +1402,28 @@
     .hero-title-main br {
         display: block;
     }
+
+    .hero-svg-1 {
+        height: 125px;
+    }
+
+    .hero-svg-2 {
+        height: 130px;
+    }
+
+    .hero-svg-3 {
+        height: 120px;
+    }
     
+    
+    .hero-svg-4 {
+        height: 140px;
+    }
+
+    .hero-svg-5 {
+        height: 140px;
+    }
+
     .hero-subtitle {
         font-size: 14px;
         letter-spacing: 0.015em;
