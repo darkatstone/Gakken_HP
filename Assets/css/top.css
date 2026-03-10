@@ -1092,21 +1092,21 @@
 .hero-char-2 { bottom: 26%; left: 25%; width: 190px; transform: translateX(-50%); }
 .hero-char-3 { bottom: 20%; left: 32%; width: 240px; transform: translateX(-50%); }
 .hero-char-4 { bottom: 12%; left: 43%; width: 240px; transform: translateX(-50%); }
-.hero-char-5 { bottom: 15%; left: 55%; width: 240px; transform: translateX(-50%); }
+.hero-char-5 { bottom: 15%; left: 55%; width: 240px; transform: translateX(-50%); z-index: 2; }
 .hero-char-6 { bottom: 20%; left: 63%; width: 200px; transform: translateX(-50%); }
 .hero-char-7 { bottom: 25%; left: 73%; width: 190px; transform: translateX(-50%); }
 .hero-char-8 { bottom: 30%; left: 83%; width: 240px; transform: translateX(-50%); }
 
 /* Bottom row (9 images) - horizontal line: all same height, bottom aligned, edges at screen edges, equal spacing, centered */
-.hero-char-10 { bottom: -10px; left: 13%; width: 240px; transform: translateX(-50%); }
-.hero-char-11 { bottom: -10px; left: 24%; width: 240px; transform: translateX(-50%); }
-.hero-element-1 { bottom: -10px; left: 33%; width: 220px; transform: translateX(-50%); }
-.hero-element-2 { bottom: -10px; left: 43%; width: 240px; transform: translateX(-50%); }
-.hero-element-3 { bottom: -10px; left: 54%; width: 240px; transform: translateX(-50%); }
-.hero-element-4 { bottom: -10px; left: 64%; width: 240px; transform: translateX(-50%); }
-.hero-element-5 { bottom: -10px; left: 72%; width: 170px; transform: translateX(-50%); }
-.hero-element-6 { bottom: -10px; left: 78%; width: 180px; transform: translateX(-50%); }
-.hero-element-7 { bottom: -10px; left: 87%; width: 240px; transform: translateX(-50%); }
+.hero-char-10 { bottom: -10px; left: 13%; width: 240px; transform: translateX(-50%); z-index: 2; }
+.hero-char-11 { bottom: -10px; left: 24%; width: 240px; transform: translateX(-50%); z-index: 2; }
+.hero-element-1 { bottom: -10px; left: 33%; width: 220px; transform: translateX(-50%); z-index: 2; }
+.hero-element-2 { bottom: -10px; left: 43%; width: 240px; transform: translateX(-50%); z-index: 2; }
+.hero-element-3 { bottom: -10px; left: 54%; width: 240px; transform: translateX(-50%); z-index: 2; }
+.hero-element-4 { bottom: -10px; left: 64%; width: 240px; transform: translateX(-50%); z-index: 2; }
+.hero-element-5 { bottom: -10px; left: 72%; width: 170px; transform: translateX(-50%); z-index: 2; }
+.hero-element-6 { bottom: -10px; left: 78%; width: 180px; transform: translateX(-50%); z-index: 2; }
+.hero-element-7 { bottom: -10px; left: 87%; width: 240px; transform: translateX(-50%); z-index: 2; }
 
 /* Left Side Title Styles */
 .hero-title-left .hero-title-part1,

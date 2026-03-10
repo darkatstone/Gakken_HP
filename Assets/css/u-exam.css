@@ -249,11 +249,19 @@
 .hero-svg-1 {
     margin-left: 0;
     animation-delay: 0.1s;
+    transform: translate(-30px, 30px) !important;
 }
 
 .hero-svg-2 {
     margin-left: -40px;
     animation-delay: 0.3s;
+    transform: translate(30px, 30px) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-svg-2 {
+        transform: translate(0, 30px) !important;
+    }
 }
 
 .hero-svg-3 {

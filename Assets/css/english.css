@@ -217,6 +217,14 @@
 .hero-svg-1 {
     right: 0;
     animation-delay: 0.1s;
+    transform: translate(-30px, 30px) !important;
+    scale: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-svg-1 {
+        transform: translate(0, 30px) !important;
+    }
 }
 
 .hero-svg-2 {
@@ -232,6 +240,13 @@
 .hero-svg-4 {
     right: 480px;
     animation-delay: 0.7s;
+    transform: translate(30px, 30px) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-svg-4 {
+        transform: translate(0, 30px) !important;
+    }
 }
 
 .hero-svg-5 {

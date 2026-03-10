@@ -82,54 +82,56 @@ async function loadPageContent(pageName) {
 function getTagColor(tagName) {
     const tagColorMap = {
         // 八澤龍之介
-        '古典文法': '#4A90E2', // Blue
-        '英文解釈': '#50C878', // Green
-        '古文読解': '#E91E63', // Pink/Magenta
-        'ベーシック古文': '#9E9E9E', // Gray
-        'スタンダード古文': '#B8860B', // Olive/Gold
+        '古典文法': '#00BFFE',
+        '英文解釈': '#51CD2F',
+        '古文読解': '#F06EB6',
+        'ベーシック古文': '#C0C0C0', // Silver
+        'スタンダード古文': '#D4AF37', // Gold
         // 岡本梨奈
-        '漢文句法': '#9C27B0', // Purple
+        '漢文句法': '#FFEC00',
+        '良問特訓漢文句法': '#C0C0C0', // Match 漢文句法
         // 山城大樹
-        '英文法': '#FF6B35', // Orange
-        'ベーシック英文法': '#9E9E9E', // Gray
-        'スタンダード英文法': '#B8860B', // Olive/Gold
+        '英文法': '#EED530',
+        'ベーシック英文法': '#C0C0C0', // Silver
+        'スタンダード英文法': '#D4AF37', // Gold
         // 宗慶二
-        '現代文': '#2196F3', // Blue
-        'ベーシック現代文': '#9E9E9E', // Gray
-        'スタンダード現代文': '#B8860B', // Olive/Gold
+        '現代文': '#37C1C1',
+        'ベーシック現代文': '#C0C0C0', // Silver
+        'スタンダード現代文': '#D4AF37', // Gold
         // 小池陽慈
-        '小論文': '#795548', // Brown
+        '小論文': '#E67056',
         // 上野柊
-        '日本史探究': '#F44336', // Red
+        '日本史探究': '#FE8A73',
         // 伊藤敏
-        '世界史探究': '#FF9800', // Orange
+        '世界史探究': '#37bbd0',
         // 大渕将克
-        '生物基礎': '#4CAF50', // Green
+        '生物基礎': '#F0DFB4',
         // 藤原進之介
-        '情報I': '#00BCD4', // Cyan
+        '情報I': '#9ACEFE',
         // 鈴木健士
-        '自由英作文': '#3F51B5', // Indigo
-        '和文英訳': '#009688', // Teal
+        '自由英作文': '#D5E85A',
+        '和文英訳': '#FE5858',
         // 守屋佑真
-        '英検3級': '#E91E63', // Pink
-        '英検4級': '#9C27B0', // Purple
-        '英検5級': '#2196F3', // Blue
+        '英検3級': '#74D5FF',
+        '英検4級': '#FF870F',
+        '英検5級': '#BED522',
         // 宮下卓也
-        '英検準2級': '#FF9800', // Orange
+        '英検準2級': '#FF81B6',
         // 杉本綾乃
-        '英検<br>準2級プラス': '#FF9800', // Orange
+        '英検<br>準2級プラス': '#CCB0EA',
         // 成川博康
-        '英検2級': '#F44336', // Red
+        '英検2級': '#23CDCC',
         // 嶋津幸樹
         '英検準1級': '#4CAF50', // Green
+        '英検1級': '#41A7FC',
         // 藤枝暁生
-        'TOEIC600点': '#00BCD4', // Cyan
+        'TOEIC600点': '#FFA012',
         // 駒井亜紀子
-        'TOEIC730点': '#3F51B5', // Indigo
+        'TOEIC730点': '#18D0C6',
         // 濱崎潤之輔
-        'TOEIC900点': '#FF6B35', // Orange
+        'TOEIC900点': '#C9C9C9',
         // Jun
-        'TOEIC入門編': '#9E9E9E' // Gray
+        'TOEIC入門編': '#FE728D'
     };
     
     // Remove <br> tags for color lookup
@@ -153,8 +155,14 @@ function generateTeacherHTML(teacher) {
         let secondLine = '';
         let fullTagName = '';
 
-        // ベーシック / スタンダード 系は単語ごとに改行
-        if (book.startsWith('ベーシック')) {
+        // 特定タイトルのレイアウト調整
+        if (book === '良問特訓漢文句法') {
+            // ユーザー指定: 1行目「良問特訓」 2行目「漢文句法」
+            firstLine = '良問特訓';
+            secondLine = '漢文句法';
+            fullTagName = book;
+        } else if (book.startsWith('ベーシック')) {
+            // ベーシック / スタンダード 系は単語ごとに改行
             firstLine = 'ベーシック';
             secondLine = book.substring('ベーシック'.length);
             fullTagName = `ベーシック${secondLine}`;
